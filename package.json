@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "npm install && node --watch app.js"
+    "start": "npm install && node --watch app.js",
+    "taild-build" : "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css --watch"
   },
   "keywords": [],
   "author": "",
