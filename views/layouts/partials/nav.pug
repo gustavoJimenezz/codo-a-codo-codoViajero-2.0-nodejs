@@ -1,0 +1,11 @@
+- 
+  var links = [
+    { title: 'Home', url: '' },
+    { title: 'Excursiones', url: '' },
+    { title: 'Reserva', url: '' },
+    { title: 'Login', url: '' }
+    ]
+
+nav(class="h-full flex justify-center items-center gap-10")
+    each link in links
+        a.link(href=link.url, class="h-full p-2 flex items-center hover:underline underline-offset-8 hover:bg-red-500")= link.title

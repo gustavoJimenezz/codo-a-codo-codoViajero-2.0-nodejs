@@ -1,21 +1,13 @@
-
 header
-  div(class="flex flex-col max-w-8xl mx-auto")
-    div(class="flex items-center bg-custom-blue text-white min-h-20")
-      div(class="basis-2/5 flex justify-center text-center")
+  div(class="relative")
+    img(src="/img/PuenteDeLaMujerHeader.jpg", alt="fondo del puente de la mujer" class="w-full h-full")
 
-        h1(class=" font-bold flex items-center") Codo
-          span(class="text-orange-500") Viajero
-
-      nav(class="basis-3/5 flex justify-center items-center gap-10 ")
-        a.link(href="index.html") Inicio
-        a.link(href="nosotros.html#nosotros") Nosotros
-        a.link(href="preguntasFrecuentes.html") Preguntas Frecuentes
-        a.link(href="contacto.html") Contacto
-        a.link(href="registro.html") Registrate
-        a.link(href="login.html") Login
-        div(class="relative")
-
-    div(class="relative")
-      img(src="/img/PuenteDeLaMujerHeader.jpg", alt="fondo del puente de la mujer" class="w-full h-full object-cover")
-      div(class="absolute inset-0 bg-gradient-to-t from-blue-500 from-2% via-transparent  via-30%")
+  div(class="absolute top-8 h-16 w-full flex items-center bg-custom-blue bg-opacity-50 text-white text-2xl")
+  
+    div(class="basis-2/5 flex justify-center text-center")
+      h1(class="font-bold flex items-center text-4xl")
+        | Codo
+        span(class="text-orange-500 text-6xl") Viajero
+    
+    div(class="basis-3/5 h-full")
+      include nav.pug
