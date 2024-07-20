@@ -5,9 +5,42 @@ html(lang="es")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel='stylesheet', href='/css/styles.css')
     title Mi Sitio Web
-  body
-    include ./partials/header.pug
+  body.m-2
+    div
 
-    block content
+      include ./partials/header.pug
+
+      div(class="relative h-60")
+        div(class=[
+          'absolute',
+          'left-1/2',
+          'transform',
+          '-translate-x-1/2',
+          'w-11/12',
+          'h-64',
+          'bottom-16',
+          'bg-white',
+          'text-white',
+          'text-center',
+          'shadow-xl',
+          'grid',
+          'grid-cols-4'
+        ])
+          div.p-4
+            h3.text-orange-500 
+              | Disfrutalo
+            p.text-orange-500 
+              | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
+              | culturales, son algunas de las atividade3s que podras disfrutar en CodoViajero.
+          div
+            img(src="/img/1cataratas.webp", alt="fondo del puente de la mujer")
+          div 
+            img(src="/img/2bariloche.jpg", alt="fondo del puente de la mujer")
+          dvi 
+            img(src="/img/3villaCarlosPaz.webp", alt="fondo del puente de la mujer")
+
+
+    main 
+      block content
 
     include ./partials/footer.pug
