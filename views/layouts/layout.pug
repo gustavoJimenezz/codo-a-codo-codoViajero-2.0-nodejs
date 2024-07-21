@@ -8,43 +8,12 @@ html(lang="es")
     title CodoViajero
 
   body.bg-gray-100
-    header.relative
+    header(class="border border-blue-900 h-screen w-screen flex flex-col")
       include ./partials/header.pug
-
-    div(class="relative h-60 container mx-auto")
-      div(class=[
-        'absolute',
-        'left-1/2',
-        'transform',
-        '-translate-x-1/2',
-        'w-11/12',
-        'h-64',
-        'bottom-16',
-        'bg-white',
-        'text-white',
-        'text-center',
-        'shadow-2xl',
-        'grid',
-        'grid-cols-4',
-        'gap-0.5',
-        'p-0.5'
-      ])
-        //- parrafo Disfrutalo
-        div.p-4.h-full
-          h3(class="text-orange-500 text-4xl p-1")
-            | Disfrutalo
-          p(class="text-orange-500")
-            | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
-            | culturales, son algunas de las atividade3s que podras disfrutar en CodoViajero.
-        //- img mosaico
-        div(class="bg-[url('/img/1cataratas.webp')] bg-no-repeat bg-center bg-cover")
-        div(class="bg-[url('/img/2bariloche.jpg')] bg-no-repeat bg-center bg-cover")
-        dvi(class="bg-[url('/img/5jujuy.jpg')] bg-no-repeat bg-center bg-cover")
 
 
     div(class="container mx-auto")
-      
-      main 
+      main
         block content
 
-      include ./partials/footer.pug
+    //- include ./partials/footer.pug

@@ -1,8 +1,4 @@
-div(class="relative")
-  img(src="/img/PuenteDeLaMujer.jpeg", alt="fondo del puente de la mujer" class="w-full max-h-screen")
-  //- img(src="/img/4sanRafel.jpg", alt="fondo del puente de la mujer" class="w-full h-full")
-
-  //- barra de menu
+div(class="bg-fixed  basis-[80%] relative bg-[url('/img/PuenteDeLaMujer.jpeg')] bg-cover bg-center bg-clip-padding")
   div(class=[
         'absolute',
         'top-8',
@@ -33,10 +29,43 @@ div(class="relative")
     
     div(class="basis-3/5 h-full")
       include nav.pug
-  
+
   div(class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center")
     h2(class="font-bold  text-6xl drop-shadow-2xl") 
       | #TuViajePerfecto
     //- span.font-bold.drop-shadow-2xl.text-right.block  comienza aquí
 
 
+//- DISFRUTALO
+div(class="basis-[20%] relative  container mx-auto")
+  div(class=[
+    'absolute',
+    'left-1/2',
+    'transform',
+    '-translate-x-1/2',
+    'w-11/12',
+    'h-[200%]',
+    'bottom-0',
+    'bg-white',
+    'text-white',
+    'text-center',
+    'shadow-2xl',
+    'grid',
+    'grid-cols-4',
+    'gap-0.5',
+    'p-0.5',
+    'overflow-hidden'
+  ])
+    //- parrafo Disfrutalo
+    div.p-4.h-full
+      h3(class="text-orange-500 text-4xl p-1")
+        | Disfrutalo
+      p(class="text-orange-500")
+        | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
+        | culturales, son algunas de las atividade3s que podras disfrutar en CodoViajero.
+    //- img mosaico
+    div(class="h-full bg-[url('/img/1cataratas.webp')] bg-cover bg-center bg-clip-padding")
+    div(class="bg-[url('/img/2bariloche.jpg')] bg-cover bg-center bg-clip-padding")
+    div(class="bg-[url('/img/5jujuy.jpg')] bg-cover bg-center bg-clip-padding")
+
+    //- 'overflow-hidden'
