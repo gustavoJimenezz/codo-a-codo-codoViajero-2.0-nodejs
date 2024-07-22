@@ -1,22 +1,29 @@
-div(class="h-full bg-blue-950 flex flex-col text-white font-extrabold")
-  div("class"="basis-[90%] grid grid-cols-3 gap-4 p-8")
-    div
-      div("class"="border-b-2 border-white")
-        h6("class"="") Descarga la APP
+div(class="h-full w-full border bg-blue-custom1 flex flex-col text-white font-extrabold")
+  div(class="bg-custom-blue-two basis-[90%] grid grid-cols-3 gap-4 p-8")
+    div(class="grid grid-rows-3 gap-4")
+      div(class="border-b-2 border-white justify-center items-center")
+        h6(class="pb-2") Descarga la APP
+      div(class="right-2 bg-[url('/icons/app_store.png')] bg-contain bg-no-repeat")
+      div(class="right-2 bg-[url('/icons/google_play.png')] bg-contain bg-no-repeat")
 
-    div
-      div("class"="border-b-2 border-white")
-        h6("class"="") Contacto
+    div(class="grid grid-rows-3 gap-4")
+      div(class="custom-blue-2 border-b-2 border-white")
+        h6(class="pb-2") Contacto
       div 
-        a 
-          p info@codoviajero.tur.ar
-      div 
-        a 
-          p (+54) 011 2774 4490 
+        ul.list-none
+          li
+            a info@codoviajero.tur.ar
+          li 
+            a (+54) 011 2774 4490 
     
-    div
-      div("class"="border-b-2 border-white")
-        h6("class"="") siguenos
+    divdiv(class="grid grid-rows-3 gap-4")
+      div(class="border-b-2 border-white")
+        h6(class="pb-2") siguenos
 
-  div("class"="basis-[10%] text-center bg-blue-900")
+      div(class="grid grid-cols-4")
+        div(class="border-white bg-[url('/icons/ig.png')] bg-contain bg-no-repeat") 
+        div(class="border-white bg-[url('/icons/twiter.png')] bg-contain bg-no-repeat") 
+        div(class="border-white bg-[url('/icons/wsp.png')] bg-contain bg-no-repeat") 
+        div(class="border-white bg-[url('/icons/facebook.png')] bg-contain bg-no-repeat") 
+  div(class="basis-[10%] text-center bg-custom-blue-one")
     p.copyright Todos los derechos reservados &copy;

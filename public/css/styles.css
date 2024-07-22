@@ -612,6 +612,10 @@ video {
   top: 2rem;
 }
 
+.right-2 {
+  right: 0.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -649,6 +653,10 @@ video {
   height: 100vh;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
 .w-\[95\%\] {
   width: 95%;
 }
@@ -661,6 +669,10 @@ video {
   width: 100vw;
 }
 
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .basis-2\/5 {
   flex-basis: 40%;
 }
@@ -669,16 +681,16 @@ video {
   flex-basis: 60%;
 }
 
+.basis-\[10\%\] {
+  flex-basis: 10%;
+}
+
 .basis-\[20\%\] {
   flex-basis: 20%;
 }
 
 .basis-\[80\%\] {
   flex-basis: 80%;
-}
-
-.basis-\[10\%\] {
-  flex-basis: 10%;
 }
 
 .basis-\[90\%\] {
@@ -699,16 +711,24 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.list-none {
+  list-style-type: none;
 }
 
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.flex-row {
-  flex-direction: row;
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -727,8 +747,16 @@ video {
   gap: 2.5rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-0 {
+  gap: 0px;
 }
 
 .overflow-hidden {
@@ -739,20 +767,12 @@ video {
   border-radius: 15px;
 }
 
-.border-2 {
-  border-width: 2px;
-}
-
 .border {
   border-width: 1px;
 }
 
-.border-l-4 {
-  border-left-width: 4px;
-}
-
-.border-b-4 {
-  border-bottom-width: 4px;
+.border-2 {
+  border-width: 2px;
 }
 
 .border-b-2 {
@@ -769,19 +789,19 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.bg-blue-950 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 37 84 / var(--tw-bg-opacity));
+.border-yellow-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 179 8 / var(--tw-border-opacity));
 }
 
-.bg-custom-blue {
+.bg-custom-blue-one {
   --tw-bg-opacity: 1;
   background-color: rgb(29 77 139 / var(--tw-bg-opacity));
 }
 
-.bg-gray-100 {
+.bg-custom-blue-two {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  background-color: rgb(38 27 59 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -789,18 +809,16 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-blue-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
-}
-
-.bg-blue-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
+}
+
+.bg-\[url\(\'\/icons\/app_store\.png\'\)\] {
+  background-image: url('/icons/app_store.png');
+}
+
+.bg-\[url\(\'\/icons\/google_play\.png\'\)\] {
+  background-image: url('/icons/google_play.png');
 }
 
 .bg-\[url\(\'\/img\/1cataratas\.webp\'\)\] {
@@ -819,8 +837,36 @@ video {
   background-image: url('/img/PuenteDeLaMujer.jpeg');
 }
 
+.bg-\[url\(\'\/icons\/1cataratas\.webp\'\)\] {
+  background-image: url('/icons/1cataratas.webp');
+}
+
+.bg-\[url\(\'\/icons\/facebook\.png\'\)\] {
+  background-image: url('/icons/facebook.png');
+}
+
+.bg-\[url\(\'\/icons\/ig\.png\'\)\] {
+  background-image: url('/icons/ig.png');
+}
+
+.bg-\[url\(\'\/icons\/twiter\.png\'\)\] {
+  background-image: url('/icons/twiter.png');
+}
+
+.bg-\[url\(\'\/icons\/wsp\.png\'\)\] {
+  background-image: url('/icons/wsp.png');
+}
+
 .bg-cover {
   background-size: cover;
+}
+
+.bg-auto {
+  background-size: auto;
+}
+
+.bg-contain {
+  background-size: contain;
 }
 
 .bg-fixed {
@@ -835,6 +881,10 @@ video {
   background-position: center;
 }
 
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -843,12 +893,12 @@ video {
   padding: 1rem;
 }
 
-.p-12 {
-  padding: 3rem;
-}
-
 .p-8 {
   padding: 2rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -885,11 +935,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .font-black {
   font-weight: 900;
 }
@@ -915,19 +960,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-
-.underline {
-  text-decoration-line: underline;
-}
-
-.underline-offset-8 {
-  text-underline-offset: 8px;
 }
 
 .shadow-2xl {
