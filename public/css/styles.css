@@ -657,6 +657,14 @@ video {
   height: 0.75rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
 .w-\[95\%\] {
   width: 95%;
 }
@@ -697,6 +705,10 @@ video {
   flex-basis: 90%;
 }
 
+.basis-\[90\] {
+  flex-basis: 90;
+}
+
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -729,6 +741,10 @@ video {
 
 .grid-rows-2 {
   grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -971,6 +987,181 @@ video {
 .drop-shadow-2xl {
   --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.before\:bottom-0::before {
+  content: var(--tw-content);
+  bottom: 0px;
+}
+
+.before\:m-2::before {
+  content: var(--tw-content);
+  margin: 0.5rem;
+}
+
+.before\:mr-2::before {
+  content: var(--tw-content);
+  margin-right: 0.5rem;
+}
+
+.before\:block::before {
+  content: var(--tw-content);
+  display: block;
+}
+
+.before\:inline-block::before {
+  content: var(--tw-content);
+  display: inline-block;
+}
+
+.before\:flex::before {
+  content: var(--tw-content);
+  display: flex;
+}
+
+.before\:h-2::before {
+  content: var(--tw-content);
+  height: 0.5rem;
+}
+
+.before\:h-full::before {
+  content: var(--tw-content);
+  height: 100%;
+}
+
+.before\:h-8::before {
+  content: var(--tw-content);
+  height: 2rem;
+}
+
+.before\:h-6::before {
+  content: var(--tw-content);
+  height: 1.5rem;
+}
+
+.before\:h-4::before {
+  content: var(--tw-content);
+  height: 1rem;
+}
+
+.before\:w-4::before {
+  content: var(--tw-content);
+  width: 1rem;
+}
+
+.before\:w-8::before {
+  content: var(--tw-content);
+  width: 2rem;
+}
+
+.before\:w-full::before {
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.before\:w-2::before {
+  content: var(--tw-content);
+  width: 0.5rem;
+}
+
+.before\:w-6::before {
+  content: var(--tw-content);
+  width: 1.5rem;
+}
+
+.before\:basis-\[10\%\]::before {
+  content: var(--tw-content);
+  flex-basis: 10%;
+}
+
+.before\:flex-row::before {
+  content: var(--tw-content);
+  flex-direction: row;
+}
+
+.before\:items-center::before {
+  content: var(--tw-content);
+  align-items: center;
+}
+
+.before\:border::before {
+  content: var(--tw-content);
+  border-width: 1px;
+}
+
+.before\:bg-\[url\(\'\/icons\/ig\.png\'\)\]::before {
+  content: var(--tw-content);
+  background-image: url('/icons/ig.png');
+}
+
+.before\:bg-\[url\(\'\/icons\/icono_correo\.png\'\)\]::before {
+  content: var(--tw-content);
+  background-image: url('/icons/icono_correo.png');
+}
+
+.before\:bg-\[url\(\'\/icons\/icono-telefono\.png\'\)\]::before {
+  content: var(--tw-content);
+  background-image: url('/icons/icono-telefono.png');
+}
+
+.before\:bg-\[url\(\'\/icons\/icono_telefono\.png\'\)\]::before {
+  content: var(--tw-content);
+  background-image: url('/icons/icono_telefono.png');
+}
+
+.before\:bg-contain::before {
+  content: var(--tw-content);
+  background-size: contain;
+}
+
+.before\:bg-cover::before {
+  content: var(--tw-content);
+  background-size: cover;
+}
+
+.before\:bg-auto::before {
+  content: var(--tw-content);
+  background-size: auto;
+}
+
+.before\:bg-no-repeat::before {
+  content: var(--tw-content);
+  background-repeat: no-repeat;
+}
+
+.before\:p-2::before {
+  content: var(--tw-content);
+  padding: 0.5rem;
+}
+
+.before\:content-\[\'\*\'\]::before {
+  --tw-content: '*';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\/icons\/icono_correo\.png\'\]::before {
+  --tw-content: '/icons/icono correo.png';
+  content: var(--tw-content);
+}
+
+.before\:content-\[url\(\'\/icons\/icono_correo\.png\'\)\]::before {
+  --tw-content: url('/icons/icono_correo.png');
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'bg-\[url\(\'\/icons\/icono_correo\.png\'\)\]\'\]::before {
+  --tw-content: 'bg-[url('/icons/icono_correo.png')]';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\'\]::before {
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
+.after\:content-\[\'\*\'\]::after {
+  --tw-content: '*';
+  content: var(--tw-content);
 }
 
 .hover\:text-orange-500:hover {
