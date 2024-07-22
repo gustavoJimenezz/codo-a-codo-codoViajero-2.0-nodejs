@@ -873,6 +873,26 @@ video {
   background-image: url('/icons/wsp.png');
 }
 
+.bg-\[url\(\'\/img\/\{\}\'\)\] {
+  background-image: url('/img/{}');
+}
+
+.bg-\[url\(\'\/img\/\{url\.img\}\'\)\] {
+  background-image: url('/img/{url.img}');
+}
+
+.bg-\[url\(\'\$\{url\.img\}\'\)\] {
+  background-image: url('${url.img}');
+}
+
+.bg-\[url\(\'\$\{url\}\'\)\] {
+  background-image: url('${url}');
+}
+
+.bg-\[url\(\'\$\{img\}\'\)\] {
+  background-image: url('${img}');
+}
+
 .bg-cover {
   background-size: cover;
 }

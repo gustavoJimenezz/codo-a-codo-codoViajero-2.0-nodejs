@@ -1,3 +1,4 @@
+//- IMAGEN DE FONDO HEADER
 div(class="bg-fixed  basis-[80%] relative bg-[url('/img/PuenteDeLaMujer.jpeg')] bg-cover bg-center bg-clip-padding")
   div(class=[
         'absolute',
@@ -12,7 +13,7 @@ div(class="bg-fixed  basis-[80%] relative bg-[url('/img/PuenteDeLaMujer.jpeg')] 
         'text-2xl'
       ])
 
-    div(class=['container', 'mx-auto',
+    div(class=[
         'basis-2/5',
         'flex',
         'justify-center',
@@ -27,8 +28,8 @@ div(class="bg-fixed  basis-[80%] relative bg-[url('/img/PuenteDeLaMujer.jpeg')] 
       ]) Codo
         span(class="text-orange-500 text-6xl") Viajero
     
-    div(class="basis-3/5 h-full")
-      include nav.pug
+    div(class="basis-3/5")
+      include menu.pug
 
   div(class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center")
     h2(class="font-bold  text-8xl drop-shadow-2xl") 
@@ -56,6 +57,7 @@ div(class="basis-[20%] relative")
     'border-2',
     'border-orange-500'
   ])
+
     //- parrafo Disfrutalo
     div(class="p-4 flex flex-col gap-4 justify-center items-center")
       h3(class="text-4xl text-center text-orange-500 font-black")
@@ -64,7 +66,10 @@ div(class="basis-[20%] relative")
         | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
         | culturales, son algunas de las atividade3s que podras disfrutar en Codo
         span.text-2xl Viajero .
-    //- img mosaico
-    div(class="bg-[url('/img/1cataratas.webp')] bg-cover bg-center bg-clip-padding")
-    div(class="bg-[url('/img/2bariloche.jpg')] bg-cover bg-center bg-clip-padding")
-    div(class="bg-[url('/img/5jujuy.jpg')] bg-cover bg-center bg-clip-padding")
+
+    //- imagenes
+    mixin bgimg(img)
+      div(class=[`bg-[url('${img}')]`, `bg-cover`])
+    +bgimg('/img/1cataratas.webp')
+    +bgimg('/img/2bariloche.jpg')
+    +bgimg('/img/5jujuy.jpg')
