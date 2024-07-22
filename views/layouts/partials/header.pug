@@ -1,40 +1,23 @@
 //- IMAGEN DE FONDO HEADER
 div(class="bg-fixed  basis-[80%] relative bg-[url('/img/PuenteDeLaMujer.jpeg')] bg-cover bg-center bg-clip-padding")
   div(class=[
-        'absolute',
-        'top-8',
-        'h-16',
-        'w-full',
-        'flex',
-        'items-center',
-        'bg-custom-blue-one',
-        'bg-opacity-50',
-        'text-white',
-        'text-2xl'
-      ])
+      'absolute',
+      'top-8',
+      'h-16',
+      'w-full'
+    ])
+    include nav.pug
 
-    div(class=[
-        'basis-2/5',
-        'flex',
-        'justify-center',
+  div(class=[
+        'absolute',
+        'top-1/2',
+        'left-1/2',
+        'transform -translate-x-1/2 -translate-y-1/2',
+        'text-white',
         'text-center'
       ])
-
-      h1(class=[
-        'font-bold',
-        'flex',
-        'items-center',
-        'text-4xl'
-      ]) Codo
-        span(class="text-orange-500 text-6xl") Viajero
-    
-    div(class="basis-3/5")
-      include menu.pug
-
-  div(class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center")
     h2(class="font-bold  text-8xl drop-shadow-2xl") 
       | #TuViajePerfecto
-
 
 //- DISFRUTALO
 div(class="basis-[20%] relative")
