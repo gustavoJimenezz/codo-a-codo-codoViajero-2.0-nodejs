@@ -1,0 +1,22 @@
+//- parrafo Disfrutalo
+div(class=[
+    'text-white',
+    'text-center',
+    'p-4',
+    'flex flex-col',
+    'gap-4',
+    'justify-center',
+    'items-center'])
+    h3(class="text-4xl text-center text-orange-500 font-black")
+        | Disfrutalo!
+    p(class="text-orange-500 text-xl font-bold")
+        | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
+        | culturales, son algunas de las atividade3s que podras disfrutar en Codo
+        span.text-2xl Viajero .
+
+//- imagenes
+mixin bgimg(img)
+    div(class=[`bg-[url('${img}')]`, 'bg-center', 'bg-no-repeat', 'bg-cover'])
++bgimg('/img/1cataratas.webp')
++bgimg('/img/2bariloche.jpg')
++bgimg('/img/5jujuy.jpg')
