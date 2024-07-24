@@ -21,16 +21,21 @@ div(class="h-full w-full border bg-blue-custom1 flex flex-col text-white font-ex
       div(class="border-b-2 border-white")
         h6(class="pb-2") siguenos
 
-      div(class="grid grid-cols-4")
-        mixin icon(url)
-          div(class=[`bg-[url('${url}')]`,
-                    `bg-contain`,
-                    `bg-no-repeat`
-                    ])
-        +icon('/icons/ig.png')
-        +icon('/icons/twiter.png')
-        +icon('/icons/wsp.png')
-        +icon('/icons/facebook.png')
+      div(class="flex justify-start gap-4")
+        div(class="bg-[url('/icons/ig.png')] bg-contain bg-no-repeat bg-center w-10 h-10")
+        div(class="bg-[url('/icons/twiter.png')] bg-contain bg-no-repeat bg-center w-10 h-10")
+        div(class="bg-[url('/icons/wsp.png')] bg-contain bg-no-repeat bg-center w-10 h-10")
+        div(class="bg-[url('/icons/facebook.png')] bg-contain bg-no-repeat bg-center w-10 h-10")
+
+        //- mixin icon(url)
+        //-   div(class=[`bg-[url('${url}')]`,
+        //-             `bg-contain`,
+        //-             `bg-no-repeat`
+        //-             ])
+        //- +icon('/icons/ig.png')
+        //- +icon('/icons/twiter.png')
+        //- +icon('/icons/wsp.png')
+        //- +icon('/icons/facebook.png')
 
   div(class="basis-[10%] text-center bg-custom-blue-one")
     p.copyright Todos los derechos reservados &copy;

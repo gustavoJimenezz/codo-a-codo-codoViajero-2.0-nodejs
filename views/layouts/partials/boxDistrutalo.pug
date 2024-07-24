@@ -1,3 +1,10 @@
+- 
+    const images = [
+        '/img/1cataratas.webp',
+        '/img/2bariloche.jpg',
+        '/img/5jujuy.jpg'
+        ]
+
 //- parrafo Disfrutalo
 div(class=[
     'text-white',
@@ -11,12 +18,9 @@ div(class=[
         | Disfrutalo!
     p(class="text-orange-500 text-xl font-bold")
         | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
-        | culturales, son algunas de las atividade3s que podras disfrutar en Codo
+        | culturales, son algunas de las actividades que podras disfrutar en Codo
         span.text-2xl Viajero .
 
-//- imagenes
-mixin bgimg(img)
-    div(class=[`bg-[url('${img}')]`, 'bg-center', 'bg-no-repeat', 'bg-cover'])
-+bgimg('/img/1cataratas.webp')
-+bgimg('/img/2bariloche.jpg')
-+bgimg('/img/5jujuy.jpg')
+//- Imagenes de fondo usando clases de Tailwind CSS
+each img in images
+    div(class="bg-center bg-no-repeat bg-cover", style=`background-image: url('${img}')`)
