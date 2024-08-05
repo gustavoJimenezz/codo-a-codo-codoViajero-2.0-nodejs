@@ -1,3 +1,6 @@
+# Ignorar la carpeta dist que contiene archivos compilados
+dist/ 
+
 # Node modules
 node_modules/
 

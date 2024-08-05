@@ -594,6 +594,10 @@ video {
   display: grid;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -614,64 +618,8 @@ video {
   height: 100vh;
 }
 
-.h-64 {
-  height: 16rem;
-}
-
-.h-auto {
-  height: auto;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
-.h-4 {
-  height: 1rem;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.max-h-2\.5 {
-  max-height: 0.625rem;
-}
-
-.max-h-8 {
-  max-height: 2rem;
-}
-
-.max-h-9 {
-  max-height: 2.25rem;
-}
-
-.max-h-10 {
-  max-height: 2.5rem;
-}
-
-.max-h-12 {
-  max-height: 3rem;
-}
-
-.max-h-4 {
-  max-height: 1rem;
-}
-
-.min-h-12 {
-  min-height: 3rem;
-}
-
-.min-h-4 {
-  min-height: 1rem;
-}
-
-.min-h-14 {
-  min-height: 3.5rem;
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-\[95\%\] {
@@ -684,14 +632,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-4 {
-  width: 1rem;
-}
-
-.w-10 {
-  width: 2.5rem;
 }
 
 .flex-1 {
@@ -756,10 +696,6 @@ video {
   flex-direction: column;
 }
 
-.place-content-center {
-  place-content: center;
-}
-
 .items-center {
   align-items: center;
 }
@@ -790,10 +726,6 @@ video {
 
 .rounded-\[15px\] {
   border-radius: 15px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .border {
@@ -837,14 +769,6 @@ video {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(\'\$\{imgBg\}\'\)\] {
-  background-image: url('${imgBg}');
-}
-
-.bg-\[url\(\'\$\{img\}\'\)\] {
-  background-image: url('${img}');
-}
-
 .bg-\[url\(\'\$\{url\}\'\)\] {
   background-image: url('${url}');
 }
@@ -853,32 +777,12 @@ video {
   background-image: url('/icons/app_store.png');
 }
 
-.bg-\[url\(\'\/icons\/google_play\.png\'\)\] {
-  background-image: url('/icons/google_play.png');
-}
-
-.bg-\[url\(\'\/img\/2bariloche\.jpg\'\)\] {
-  background-image: url('/img/2bariloche.jpg');
-}
-
-.bg-\[url\(\'\/img\/PuenteDeLaMujer\.jpeg\'\)\] {
-  background-image: url('/img/PuenteDeLaMujer.jpeg');
-}
-
-.bg-\[url\(\'\/img\/1cataratas\.webp\'\)\] {
-  background-image: url('/img/1cataratas.webp');
-}
-
-.bg-\[url\(\'\/img\/5jujuy\.jpg\'\)\] {
-  background-image: url('/img/5jujuy.jpg');
-}
-
-.bg-\[url\(\'\$\{icon\.ruta\}\'\)\] {
-  background-image: url('${icon.ruta}');
-}
-
 .bg-\[url\(\'\/icons\/facebook\.png\'\)\] {
   background-image: url('/icons/facebook.png');
+}
+
+.bg-\[url\(\'\/icons\/google_play\.png\'\)\] {
+  background-image: url('/icons/google_play.png');
 }
 
 .bg-\[url\(\'\/icons\/ig\.png\'\)\] {
@@ -891,6 +795,10 @@ video {
 
 .bg-\[url\(\'\/icons\/wsp\.png\'\)\] {
   background-image: url('/icons/wsp.png');
+}
+
+.bg-\[url\(\'\/img\/PuenteDeLaMujer\.jpeg\'\)\] {
+  background-image: url('/img/PuenteDeLaMujer.jpeg');
 }
 
 .bg-contain {
