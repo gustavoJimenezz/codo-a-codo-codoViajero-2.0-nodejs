@@ -108,8 +108,8 @@
   "include": [
     "src/*",
     "src/**/*",
-    "bd/*",
-    "models/*",
+    "src/bd/*",
+    "src/models/*",
   ],
   "exclude": ["node_modules"]
 }

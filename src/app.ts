@@ -1,6 +1,7 @@
 import express from 'express';
 import {Application, Request, Response } from 'express';
 import path from 'path';
+import './models/TravelPackage'
 
 class App {
   public app: Application;
