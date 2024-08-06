@@ -107,7 +107,9 @@
   },
   "include": [
     "src/*",
-    "src/**/*"                           // Incluye todos los archivos .ts en el directorio src.
+    "src/**/*",
+    "bd/*",
+    "models/*",
   ],
   "exclude": ["node_modules"]
 }
