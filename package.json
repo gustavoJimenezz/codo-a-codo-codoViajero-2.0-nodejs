@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "db-create": "npx sequelize-cli db:create",
+    "db:create": "npx sequelize-cli db:create",
+    "db:seed":"npx sequelize db:seed:all",
+    "db:migrate": "npx sequelize-cli db:migrate",
     "-ts": "tsc",
     "-tw": "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css",
     "start": "node --watch src/index.js",

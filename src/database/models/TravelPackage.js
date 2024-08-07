@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 
 const createTravelPackageModel = (sequelize) => {
-  class TravelPackage extends Model {}
+  class TravelPackage extends Model { }
 
   TravelPackage.init({
     id: {
@@ -29,6 +29,10 @@ const createTravelPackageModel = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
   }, {
     sequelize,
     tableName: 'TravelPackages',
