@@ -1,6 +1,6 @@
-import App from './app';
+const App = require('./app');
 
 const port = 3000;
 const app = new App(port);
 
-app.start(port);
+app.start();

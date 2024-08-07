@@ -1,9 +1,9 @@
-import { Model, DataTypes, Optional } from "sequelize";
-import sequelize from "../bd/database";
+const { Model, DataTypes } = require('sequelize');
 
-class TravelPackage extends Model{}
+const createTravelPackageModel = (sequelize) => {
+  class TravelPackage extends Model {}
 
-TravelPackage.init({
+  TravelPackage.init({
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
       autoIncrement: true,
@@ -29,16 +29,17 @@ TravelPackage.init({
       type: DataTypes.STRING,
       allowNull: false,
     },
-    active:{
+    active: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true
-    }
+      defaultValue: true,
+    },
   }, {
     sequelize,
     tableName: 'TravelPackages',
     timestamps: false,
   });
 
-TravelPackage.sync();
+  return TravelPackage;
+};
 
-export default TravelPackage;
+module.exports = createTravelPackageModel;

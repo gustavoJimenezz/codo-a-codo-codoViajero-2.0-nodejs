@@ -1,17 +1,12 @@
-import express from 'express';
-import {Application, Request, Response, Router} from 'express';
-import path from 'path';
-import './models/TravelPackage'
+const express = require('express');
+const path = require('path');
+require('./database/models/TravelPackage');
 
 class App {
-  public app: Application;
-  private port: number;
-  private travelPackgesRoute:Router;
-
-  constructor(port:number){
+  constructor(port) {
     this.app = express();
     this.port = port;
-    this.travelPackgesRoute = require('./routes/TravelPackageRoutes')
+    this.travelPackgesRoute = require('./routes/TravelPackageRoutes');
 
     this.setMiddlewares();
     this.setViewEngine();
@@ -20,37 +15,35 @@ class App {
     this.setStaticRoutes();
   }
 
-  private setMiddlewares(): void {
+  setMiddlewares() {
     this.app.use(express.json()); // Middleware para parsear JSON
   }
 
-  private setViewEngine(): void {
+  setViewEngine() {
     this.app.set('views', path.resolve(__dirname, '../views')); 
     this.app.set('view engine', 'pug');
     this.app.locals.basedir = this.app.get('views');
   }
 
-  private setStaticFiles(): void {
+  setStaticFiles() {
     this.app.use(express.static(path.resolve(__dirname, '../public')));
   }
 
-  private setStaticRoutes(): void {
+  setStaticRoutes() {
     this.app.use('/travelPackages', this.travelPackgesRoute);
   }
 
-  private setRoutes(): void {
-    this.app.get('/', (req: Request, res: Response) => {
+  setRoutes() {
+    this.app.get('/', (req, res) => {
       res.render('index', { title: 'Inicio' });
     });
-
   }
 
-  public start(port:number): void {
+  start() {
     this.app.listen(this.port, () => {
       console.log(`Servidor corriendo en http://localhost:${this.port}`);
     });
   }
 }
 
-
-export default App;
+module.exports = App;
