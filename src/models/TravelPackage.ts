@@ -1,4 +1,4 @@
-import { Sequelize, Model, DataTypes, Optional } from "sequelize";
+import { Model, DataTypes, Optional } from "sequelize";
 import sequelize from "../bd/database";
 
 class TravelPackage extends Model{}
@@ -36,6 +36,9 @@ TravelPackage.init({
   }, {
     sequelize,
     tableName: 'TravelPackages',
+    timestamps: false,
   });
 
 TravelPackage.sync();
+
+export default TravelPackage;
