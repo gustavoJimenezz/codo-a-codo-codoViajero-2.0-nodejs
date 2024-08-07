@@ -1,6 +1,5 @@
 const models = require('../database/models/index')
-// const TravelPackage = require('../database/models/TravelPackage');
-const { Request, Response } = require('express');
+
 
 exports.GetAllTravelPackages = async (req, res) => {
     try {
