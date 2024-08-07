@@ -19,13 +19,17 @@ module.exports = {
           allowNull: false,
         },
         description: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1000),
           allowNull: false,
         },
         img: {
           type: Sequelize.STRING,
           allowNull: false,
         },
+        active: {
+          type: Sequelize.BOOLEAN,
+          defaultValue: true
+        }
       });
     }
   },

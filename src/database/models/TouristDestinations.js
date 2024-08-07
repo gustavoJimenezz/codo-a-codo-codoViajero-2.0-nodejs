@@ -14,12 +14,16 @@ const createTouristDestinations= (sequelize) => {
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1000),
       allowNull: false,
     },
     img: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   }, {
     sequelize,
@@ -27,7 +31,7 @@ const createTouristDestinations= (sequelize) => {
     timestamps: false,
   });
 
-  return TravelPackage;
+  return TouristDestination;
 };
 
-module.exports = createTravelPackageModel;
+module.exports = createTouristDestinations;

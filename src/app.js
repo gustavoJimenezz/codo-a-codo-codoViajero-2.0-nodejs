@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
-require('./database/models/TravelPackage');
+require('./database/models/TouristDestinations');
 
 class App {
   constructor(port) {
     this.app = express();
     this.port = port;
-    this.travelPackgesRoute = require('./routes/TravelPackageRoutes');
+    this.touristDestination = require('./routes/touristDestinationRoutes');
 
     this.setMiddlewares();
     this.setViewEngine();
@@ -30,7 +30,7 @@ class App {
   }
 
   setStaticRoutes() {
-    this.app.use('/travelPackages', this.travelPackgesRoute);
+    this.app.use('/touristDestinations', this.touristDestination);
   }
 
   setRoutes() {
