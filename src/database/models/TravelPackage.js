@@ -29,10 +29,6 @@ const createTravelPackageModel = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    active: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
-    },
   }, {
     sequelize,
     tableName: 'TravelPackages',
