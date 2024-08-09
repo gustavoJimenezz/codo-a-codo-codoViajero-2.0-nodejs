@@ -1,43 +1,53 @@
 //- IMAGEN DE FONDO HEADER
-div(class="bg-fixed  basis-[80%] relative bg-[url('/img/PuenteDeLaMujer.jpeg')] bg-cover bg-center bg-clip-padding")
+div(class=[
+  `bg-fixed`, 
+  `basis-[80%]`, 
+  `relative`, 
+  `bg-[url('/img/PuenteDeLaMujer.jpeg')]`, 
+  `bg-cover bg-center bg-clip-padding`])
+
   div(class=[
-      'absolute',
-      'top-8',
-      'h-16',
-      'w-full'
+      `absolute`,
+      `top-8`,
+      `h-16`,
+      `w-full`
     ])
     include nav.pug
 
   div(class=[
-        'absolute',
-        'top-1/2',
-        'left-1/2',
-        'transform -translate-x-1/2 -translate-y-1/2',
-        'text-white',
-        'text-center'
+        `absolute`,
+        `top-1/2`,
+        `left-1/2`,
+        `transform -translate-x-1/2 -translate-y-1/2`,
+        `text-white`,
+        `text-center`
       ])
-    h2(class="font-bold  text-8xl drop-shadow-2xl") 
+    h2(class=[
+      'font-bold', 
+      'text-8xl', 
+      'drop-shadow-2xl'
+      ]) 
       | #TuViajePerfecto
 
 //- DISFRUTALO
-div(class="basis-[20%] relative")
+div(class="basis-[20%] w-full relative")
   div(class=[
-    'absolute',
-    'left-1/2',
-    'transform',
-    '-translate-x-1/2',
-    'w-[110rem]',
-    'h-[200%]',
-    'bottom-0',
-    'bg-white',
-    'text-white',
-    'text-center',
-    'shadow-xl',
-    'grid',
-    'grid-cols-4',
-    'overflow-hidden',
-    'rounded-[15px]',
-    'border-2',
-    'border-orange-500'
+    `absolute`,
+    `left-1/2`,
+    `transform`,
+    `-translate-x-1/2`,
+    `w-[95%]`,
+    `h-[200%]`,
+    `bottom-0`,
+    `bg-white`,
+    `text-white`,
+    `text-center`,
+    `shadow-xl`,
+    `grid`,
+    `grid-cols-4`,
+    `overflow-hidden`,
+    `rounded-[15px]`,
+    `border-2`,
+    `border-orange-500`
   ])
     include boxDistrutalo.pug
