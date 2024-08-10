@@ -25,9 +25,9 @@ const getTuristDestination = async () => {
                 mainDiv.classList.add('flex', 'h-80', 'w-full', 'm-auto', 'gap-2');
 
                 const subDiv1 = document.createElement('div');
-                subDiv1.classList.add('basis-3/6', 'p-4');
+                subDiv1.classList.add('w-full' ,'basis-3/6', 'p-4');
                 const subDiv2 = document.createElement('div');
-                subDiv2.classList.add('basis-3/6', 'p-4');
+                subDiv2.classList.add('w-full' ,'basis-3/6', 'p-4');
 
                 const divImg = document.createElement('div');
                 divImg.classList.add('h-full', 'bg-cover', 'bg-no-repeat', 'bg-center')
