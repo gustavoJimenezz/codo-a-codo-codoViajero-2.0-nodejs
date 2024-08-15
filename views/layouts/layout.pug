@@ -15,11 +15,9 @@ html(lang="es")
       ])
       include ./partials/header.pug
 
-    div(class="flex flex-col container mx-auto")
-      main(class="w-full bg-gray-100")
-        block content
+    
+    main(class="w-full flex flex-col")
+      block content
 
     footer(class="h-60 w-full")
       include ./partials/footer.pug
-
-script(src="/js/touristDestine.js")
