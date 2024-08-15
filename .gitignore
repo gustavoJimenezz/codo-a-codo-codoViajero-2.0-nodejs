@@ -4,6 +4,9 @@ dist/
 # Node modules
 node_modules/
 
+# Enviroment
+.env
+
 # Logs
 logs/
 *.log
