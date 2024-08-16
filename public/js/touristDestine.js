@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!response.ok) {
         throw new Error('Error en la respuesta de la red');
       }
-      alert("emtroo!!")
 
       const data = await response.json();
       let order = 0;

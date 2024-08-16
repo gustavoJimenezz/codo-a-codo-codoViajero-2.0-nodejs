@@ -4,11 +4,7 @@ dist/
 # Node modules
 node_modules/
 
-<<<<<<< HEAD
-# ENV
-=======
 # Enviroment
->>>>>>> main
 .env
 
 # Logs
