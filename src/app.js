@@ -37,6 +37,10 @@ class App {
     this.app.get('/', (req, res) => {
       res.render('index', { title: 'Inicio' });
     });
+
+    this.app.get('/excursions', (req, res) => {
+      res.render('excursions');
+    });
   }
 
   start() {
