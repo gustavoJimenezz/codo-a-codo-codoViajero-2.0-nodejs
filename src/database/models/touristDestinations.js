@@ -1,8 +1,16 @@
+'use strict';
+
 const { Model, DataTypes } = require('sequelize');
 
-const createTouristDestinations= (sequelize) => {
-  class TouristDestination extends Model { }
+class TouristDestination extends Model {
+  static associate(models) {
+    TouristDestination.hasMany(models.Hotel, {
+      foreignKey: 'tourist_destination_id',
+    });
+  }
+}
 
+const initTouristDestination = (sequelize) => {
   TouristDestination.init({
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -23,15 +31,15 @@ const createTouristDestinations= (sequelize) => {
     },
     active: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true
-    }
+      defaultValue: true,
+    },
   }, {
     sequelize,
-    tableName: 'TouristDestinations',
+    tableName: 'tourist-destinations',
     timestamps: false,
   });
 
   return TouristDestination;
 };
 
-module.exports = createTouristDestinations;
+module.exports = initTouristDestination;

@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-require('./database/models/TouristDestinations');
+require('./database/models/touristDestinations');
 
 class App {
   constructor(port) {
