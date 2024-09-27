@@ -1,4 +1,4 @@
-const globalConst = require('../../const/globalConst');
+const globalConst = require('../../constants/globalConst');
 
 module.exports ={
   "development": {

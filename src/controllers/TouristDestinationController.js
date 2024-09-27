@@ -1,14 +1,5 @@
 const models = require('../database/models/index')
 
-exports.GetAllTouristDestinations = async (req, res) => {
-    try {
-        const travelPackages = await models.TouristDestination.findAll();
-        res.status(200).json(travelPackages);
-    } catch (e) {
-        res.status(500).json({ error: 'Error : ' , message: e.message});
-    }
-}
-
 exports.GetTouristDestinationByID = async (req, res) => {
     try {
         const { id } = req.params;

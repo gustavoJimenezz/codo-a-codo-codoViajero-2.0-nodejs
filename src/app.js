@@ -1,22 +1,21 @@
 const express = require('express');
 const path = require('path');
 require('./database/models/touristDestinations');
+const indexRouters = require('./routes/index.routes');
 
 class App {
   constructor(port) {
     this.app = express();
     this.port = port;
-    this.touristDestination = require('./routes/touristDestinationRoutes');
 
     this.setMiddlewares();
     this.setViewEngine();
     this.setStaticFiles();
     this.setRoutes();
-    this.setStaticRoutes();
   }
 
   setMiddlewares() {
-    this.app.use(express.json()); // Middleware para parsear JSON
+    this.app.use(express.json());
   }
 
   setViewEngine() {
@@ -29,18 +28,8 @@ class App {
     this.app.use(express.static(path.resolve(__dirname, '../public')));
   }
 
-  setStaticRoutes() {
-    this.app.use('/touristDestinations', this.touristDestination);
-  }
-
   setRoutes() {
-    this.app.get('/', (req, res) => {
-      res.render('index', { title: 'Inicio' });
-    });
-
-    this.app.get('/excursions', (req, res) => {
-      res.render('excursions');
-    });
+    this.app.use(indexRouters);
   }
 
   start() {
