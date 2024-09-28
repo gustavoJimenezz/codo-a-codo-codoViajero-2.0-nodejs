@@ -1,9 +1,11 @@
 extends layouts/layout
+
 block headerContent
   include ./layouts/partials/headerIndex.pug
 
 block content
   div(id='index' class='flex flex-col gap-4 p-4')
+
     div(class=[
       'text-black',
       'text-center',
@@ -18,24 +20,15 @@ block content
         | Descubre Nuestros Destinos Turisticos
       p(class='sm:text-base lg:text-xl xl:text-2xl text-orange-500 text-xl font-bold')
         | Cada destino ha sido seleccionado para brindarte una experiencia única, asegurando que cada momento de tu viaje sea inolvidable. Nuestro compromiso es proporcionarte una aventura sin preocupaciones, llena de exploración y descubrimiento.
-    div(class='flex flex-col gap-2')
+
+    div(class='grid grid-cols-2 gap-8 pb-10')
       each package, index in travelPackages 
-        div(class='flex border-2 border-orange-200')
+        div(class='flex h-80 box-border overflow-hidden border-t-4 border-orange-300 rounded-lg drop-shadow-2xl')
           div(class='flex-1')
-            if index % 2 === 0
-              img(src=`/img/touristDestinations/${package.img}`, alt=`imagen de la ciudad de ${package.city}`)
-            else
-              div
-                h4
-                  | #{package.city}
-                p 
-                  | #{package.description}
+            img(src=`/img/touristDestinations/${package.img}`, alt=`imagen de la ciudad de ${package.city}` class='w-full h-full object-cover')
           div(class='flex-1')
-            if index % 2 === 0
-              div
-                h4
-                  | #{package.city}
-                p 
-                  | #{package.description}
-            else
-              img(src=`/img/touristDestinations/${package.img}`, alt=`imagen de la ciudad de ${package.city}`)
+            div(class='flex flex-col gap-4 p-6')
+              h4(class=['indent-8', 'text-base sm:text-lg md:text-xl lg:text-3xl xl:text-2xl', 'text-center', 'text-orange-500', 'font-black'])
+                | #{package.city}
+              p(class='text-[#373737] font-medium text-balance')
+                | #{package.description}
