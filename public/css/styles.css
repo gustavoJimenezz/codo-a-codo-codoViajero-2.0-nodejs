@@ -650,6 +650,10 @@ video {
   width: 100vw;
 }
 
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .basis-2\/5 {
   flex-basis: 40%;
 }
@@ -724,6 +728,10 @@ video {
   gap: 1rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -748,6 +756,11 @@ video {
   border-bottom-width: 2px;
 }
 
+.border-indigo-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 102 241 / var(--tw-border-opacity));
+}
+
 .border-orange-500 {
   --tw-border-opacity: 1;
   border-color: rgb(249 115 22 / var(--tw-border-opacity));
@@ -756,6 +769,11 @@ video {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-orange-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 215 170 / var(--tw-border-opacity));
 }
 
 .bg-custom-blue-one {
@@ -803,6 +821,38 @@ video {
 
 .bg-\[url\(\'\/img\/PuenteDeLaMujer\.jpeg\'\)\] {
   background-image: url('/img/PuenteDeLaMujer.jpeg');
+}
+
+.bg-\[url\(\'\/public\/img\/touristDestinations\/\$\{package\.img\}\'\)\] {
+  background-image: url('/public/img/touristDestinations/${package.img}');
+}
+
+.bg-\[url\(\'img\/touristDestinations\/\$\{package\.img\}\'\)\] {
+  background-image: url('img/touristDestinations/${package.img}');
+}
+
+.bg-\[url\(\'\/img\/touristDestinations\/\$\{package\.img\}\'\)\] {
+  background-image: url('/img/touristDestinations/${package.img}');
+}
+
+.bg-\[url\(\'\.\/img\/touristDestinations\/\$\{package\.img\}\'\)\] {
+  background-image: url('./img/touristDestinations/${package.img}');
+}
+
+.bg-\[url\(\'\.\/touristDestinations\/\$\{package\.img\}\'\)\] {
+  background-image: url('./touristDestinations/${package.img}');
+}
+
+.bg-\[url\(\'\.\/\$\{package\.img\}\'\)\] {
+  background-image: url('./${package.img}');
+}
+
+.bg-\[url\(\'\/img\/touristDestinations\/\'\)\] {
+  background-image: url('/img/touristDestinations/');
+}
+
+.bg-\[url\(\'\/img\/\$\{package\.img\}\'\)\] {
+  background-image: url('/img/${package.img}');
 }
 
 .bg-contain {

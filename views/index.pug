@@ -18,13 +18,24 @@ block content
         | Descubre Nuestros Destinos Turisticos
       p(class='sm:text-base lg:text-xl xl:text-2xl text-orange-500 text-xl font-bold')
         | Cada destino ha sido seleccionado para brindarte una experiencia única, asegurando que cada momento de tu viaje sea inolvidable. Nuestro compromiso es proporcionarte una aventura sin preocupaciones, llena de exploración y descubrimiento.
-
-      h1 Travel Packages
-      if travelPackages.length > 0
-          ul
-              each package in travelPackages
-                  li #{package.name} - #{package.description} // Cambia estos atributos según los que tengas en tu modelo
-      else
-          p No travel packages available.
-  //-   div(id='destinations' class='flex flex-col justify-center  gap-4')
-  //- script(src='/js/touristDestine.js')
+    div(class='flex flex-col gap-2')
+      each package, index in travelPackages 
+        div(class='flex border-2 border-orange-200')
+          div(class='flex-1')
+            if index % 2 === 0
+              img(src=`/img/touristDestinations/${package.img}`, alt=`imagen de la ciudad de ${package.city}`)
+            else
+              div
+                h4
+                  | #{package.city}
+                p 
+                  | #{package.description}
+          div(class='flex-1')
+            if index % 2 === 0
+              div
+                h4
+                  | #{package.city}
+                p 
+                  | #{package.description}
+            else
+              img(src=`/img/touristDestinations/${package.img}`, alt=`imagen de la ciudad de ${package.city}`)
