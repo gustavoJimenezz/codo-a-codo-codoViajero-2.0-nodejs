@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 require('./database/models/touristDestinations');
 const indexRouters = require('./routes/index.routes');
+const excursionesRouters = require('./routes/excursiones.routes');
+
 
 class App {
   constructor(port) {
@@ -30,6 +32,7 @@ class App {
 
   setRoutes() {
     this.app.use(indexRouters);
+    this.app.use(excursionesRouters);
   }
 
   start() {
