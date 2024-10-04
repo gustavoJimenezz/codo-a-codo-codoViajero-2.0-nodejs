@@ -1,31 +1,31 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('excursiones', {
+    await queryInterface.createTable('excursions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nombre: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      descripcion: {
+      description: {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      duracion: {
+      duration: {
         type: Sequelize.INTEGER,
         allowNull: false,
         comment: 'Duración en horas o días'
       },
-      precio: {
+      price: {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      imagen: {
+      img: {
         type: Sequelize.STRING,
         allowNull: true,
         comment: 'URL de la imagen de la excursión'

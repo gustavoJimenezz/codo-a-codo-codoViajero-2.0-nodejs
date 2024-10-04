@@ -12,24 +12,24 @@ const initExcursions = (sequelize) => {
             primaryKey: true,
             type: DataTypes.INTEGER // Cambiar a DataTypes
         },
-        nombre: {
+        name: {
             type: DataTypes.STRING, // Cambiar a DataTypes
             allowNull: false
         },
-        descripcion: {
+        description: {
             type: DataTypes.TEXT, // Cambiar a DataTypes
             allowNull: false
         },
-        duracion: {
+        duration: {
             type: DataTypes.INTEGER, // Cambiar a DataTypes
             allowNull: false,
             comment: 'Duración en horas o días'
         },
-        precio: {
+        price: {
             type: DataTypes.FLOAT, // Cambiar a DataTypes
             allowNull: false
         },
-        imagen: {
+        img: {
             type: DataTypes.STRING, // Cambiar a DataTypes
             allowNull: true,
             comment: 'URL de la imagen de la excursión'
@@ -53,9 +53,9 @@ const initExcursions = (sequelize) => {
             type: DataTypes.DATE // Cambiar a DataTypes
         }
     }, {
-        sequelize, // Asegúrate de que la conexión se pasa correctamente
-        modelName: 'Excursions', // Especifica el nombre del modelo
-        tableName: 'excursiones' // Especifica el nombre de la tabla si es diferente
+        sequelize,
+        tableName: 'excursiones',
+        timestamps: false,
     });
     return Excursions;
 }
