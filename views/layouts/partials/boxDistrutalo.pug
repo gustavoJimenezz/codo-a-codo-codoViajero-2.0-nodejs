@@ -4,24 +4,40 @@
         '/img/2bariloche.jpg',
         '/img/5jujuy.jpg'
         ]
-
-//- parrafo Disfrutalo
 div(class=[
-    'col-span-3 sm:col-span-1',
-    'text-white',
-    'text-center',
-    'sm:p-0',
-    'flex flex-col',
-    'justify-center',
-    'items-center',
-    'overflow-y-auto'])
-    h3(class=['overflow-hidden text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl', 'text-center', 'text-orange-500', 'font-black'])
-        | Disfrutalo!
-    p(class=['overflow-hidden text-sm sm:text-base lg:text-xl xl:text-2xl', 'text-orange-500', 'font-bold'])
-        | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
-        | culturales, son algunas de las actividades que podras disfrutar en Codo
-        span(class='text-base sm:text-xl lg:text-2xl xl:text-3xl') Viajero .
+    `absolute`,
+    `left-1/2`,
+    `transform`,
+    `-translate-x-1/2`,
+    `w-[95%]`,
+    `h-[200%]`,
+    `bottom-0`,
+    `bg-white`,
+    `text-white`,
+    `text-center`,
+    `shadow-xl`,
+    `grid`,
+    `grid-cols-3 sm:grid-cols-4`,
+    `grid-rows-3 sm:grid-rows-1`,
+    `overflow-hidden`,
+    ])
+    div(class=[
+        'w-30',
+        'col-span-3 sm:col-span-1',
+        'text-white',
+        'text-center',
+        'sm:p-0',
+        'flex flex-col',
+        'justify-center',
+        'items-center',
+        'overflow-y-auto'])
+        h3(class=['overflow-hidden text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl', 'text-center', 'text-orange-500', 'font-black'])
+            | Disfrutalo!
+        p(class=['overflow-hidden text-sm sm:text-base lg:text-xl xl:text-2xl', 'text-orange-500', 'font-bold'])
+            | Rutas patrimoniales gratuitas, festivales de musica y exposiciones 
+            | culturales, son algunas de las actividades que podras disfrutar en Codo
+            span(class='text-base sm:text-xl lg:text-2xl xl:text-3xl') Viajero .
 
-//- Imagenes de fondo usando clases de Tailwind CSS
-each img in images
-    div(class="row-span-2 bg-center bg-no-repeat bg-cover", style=`background-image: url('${img}')`)
+    //- Imagenes de fondo usando clases de Tailwind CSS
+    each img in images
+        div(class="row-span-2 bg-center bg-no-repeat bg-cover", style=`background-image: url('${img}')`)

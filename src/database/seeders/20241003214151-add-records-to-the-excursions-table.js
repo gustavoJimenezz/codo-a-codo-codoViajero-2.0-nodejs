@@ -2,12 +2,10 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    // Obtener los IDs de los destinos turísticos para referenciarlos
     const [destinos] = await queryInterface.sequelize.query(
       'SELECT id, city FROM `tourist-destinations`;'
     );
 
-    // Crear un mapa para facilitar la asignación de IDs
     const destinoMap = destinos.reduce((map, destino) => {
       map[destino.city] = destino.id;
       return map;

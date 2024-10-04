@@ -1,0 +1,11 @@
+extends layouts/layout
+block headerContent
+  include ./layouts/partials/headerExcursions.pug
+
+block content
+  p El precio mínimo de las excursiones es: $#{cheapestExcursion.descripcion}
+
+  each excursion in allExcursions
+      h2= excursion.nombre
+      p= excursion.descripcion
+      p Duración: #{excursion.duracion} 

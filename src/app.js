@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('./database/models/touristDestinations');
 const indexRouters = require('./routes/index.routes');
-const excursionesRouters = require('./routes/excursiones.routes');
+const excursionesRouters = require('./routes/excursions.routes');
 
 
 class App {
