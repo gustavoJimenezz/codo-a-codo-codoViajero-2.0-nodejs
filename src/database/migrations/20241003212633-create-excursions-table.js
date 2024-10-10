@@ -51,6 +51,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('excursiones');
+    await queryInterface.dropTable('excursions');
   }
 };

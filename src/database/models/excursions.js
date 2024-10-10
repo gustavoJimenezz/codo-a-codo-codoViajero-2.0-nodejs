@@ -54,7 +54,6 @@ const initExcursions = (sequelize) => {
         }
     }, {
         sequelize,
-        tableName: 'excursiones',
         timestamps: false,
     });
     return Excursions;

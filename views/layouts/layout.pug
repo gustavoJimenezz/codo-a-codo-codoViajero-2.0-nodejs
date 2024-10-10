@@ -12,12 +12,11 @@ html(lang="es")
       'flex', 
       'flex-col'
       ])
-      block headerContent
-      //- include ./partials/header.pug
-
+      include ./partials/header.pug
     
-    main(class="w-full flex flex-col")
+    main(class="w-full flex flex-col")  
       block content
+      include ./partials/boxDisfrutalo.pug
 
     footer(class="h-60 w-full")
       include ./partials/footer.pug

@@ -6,7 +6,7 @@ controller.getExcursions = async (req, res) => {
     try {
         const allExcursions = await models.Excursions.findAll();
         const cheapestExcursion = await models.Excursions.findOne({
-            order: [['precio', 'ASC']]
+            order: [['price', 'ASC']]
         });
         res.render('excursions', { 
             allExcursions,
