@@ -9,10 +9,10 @@ html(lang="es")
   body
     header
       include ./partials/header.pug
+      block contentHeader
     
     main(class="w-full flex flex-col")  
-      block content
-      include ./partials/boxDisfrutalo.pug
+      block contentMain
 
     footer(class="h-60 w-full")
       include ./partials/footer.pug
