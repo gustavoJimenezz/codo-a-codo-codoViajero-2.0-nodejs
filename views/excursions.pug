@@ -16,53 +16,57 @@ block contentHeader
       ]) 
       | Excursiones
 
-  div(class=[
-      `absolute`,
-      `bottom-0`,
-      `left-1/2`, 
-      `transform -translate-x-1/2`, 
-      `text-white`,
-      `text-center`,
-      `mb-2`
-    ])
-    article(class="flex relative bg-white transition hover:shadow-xl p-2")
-      div(class="flex-1 hidden sm:block sm:basis-80")
-        img(
-          alt=`${cheapestExcursion.name}`
-          src=`/img/excursions/${cheapestExcursion.img}`
-          class=" w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-        )
-
-      div(class="flex-1 h-full")
-        div(class="flex flex-col gap-1 border-s border-gray-900/10 sm:border-l-transparent sm:p-4")
-  
-          h3(class="font-extrabold uppercase text-orange-500 text-2xl")
-            | #{cheapestExcursion.name}
-
-          p(class="mt-2 text-left line-clamp-3 text-lg/relaxed text-gray-700")
-            | #{cheapestExcursion.description}
-
-          div(class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4")
-            dt(class="font-medium text-gray-900") Duracion
-            dd(class="text-gray-700 sm:col-span-2") #{cheapestExcursion.duration} Hs
-
-          div(class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4")
-            dt(class="font-medium text-gray-900") Precio
-            dd(class="text-gray-700 sm:col-span-2") #{cheapestExcursion.price}$
-
-          a(class="inline-block rounded bg-indigo-500 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500" href="#") Reservar
-      
-      div(class="right-0 top-0 w-16 h-16 border-[2rem] border-solid border-orange-600 border-b-transparent border-l-transparent absolute")
-      div(class="right-0 top-0 w-8 h-8 absolute")
-        p(class="text-2xl hover:text-4xl transition-all") 
-          | ♥
-
-      div(class="flex items-center justify-center left-[-0.5rem] top-[-0.5rem] w-20 h-20 bg-orange-600 rounded-full absolute rotate-[-45deg]")
-        span(class="text-2xl hover:text-4xl transition-all flex items-center justify-center w-full h-full")
-          | -10%
 
 block contentMain
-  div(class='flex gap-2 pb-10 m-auto mt-6') 
+  div(class="relative h-72 flex justify-center ")
+  
+    div(class=[
+        `absolute`,
+        `text-white`,
+        `text-center`,
+        `h-96`,
+        `mt-[-4rem]`,
+        `w-3/5`
+      ])
+      article(class="flex relative bg-white transition shadow-xl p-2")
+        div(class="flex-1 hidden sm:block sm:basis-80")
+          img(
+            alt=`${cheapestExcursion.name}`
+            src=`/img/excursions/${cheapestExcursion.img}`
+            class=" w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+          )
+
+        div(class="flex-1 h-full")
+          div(class="flex flex-col gap-1 border-s border-gray-900/10 sm:border-l-transparent sm:p-4")
+    
+            h3(class="font-extrabold uppercase text-orange-500 text-2xl")
+              | #{cheapestExcursion.name}
+
+            p(class="mt-2 text-left line-clamp-3 text-lg/relaxed text-gray-700")
+              | #{cheapestExcursion.description}
+
+            div(class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4")
+              dt(class="font-medium text-gray-900") Duracion
+              dd(class="text-gray-700 sm:col-span-2") #{cheapestExcursion.duration} Hs
+
+            div(class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4")
+              dt(class="font-medium text-gray-900") Precio
+              dd(class="text-gray-700 sm:col-span-2") #{cheapestExcursion.price}$
+
+            a(class="inline-block rounded bg-indigo-500 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500" href="#") Reservar
+        
+        div(class="right-0 top-0 w-16 h-16 border-[2rem] border-solid border-orange-600 border-b-transparent border-l-transparent absolute")
+        div(class="right-0 top-0 w-8 h-8 absolute")
+          p(class="text-2xl hover:text-4xl transition-all") 
+            | ♥
+
+        div(class="flex items-center justify-center left-[-0.5rem] top-[-0.5rem] w-20 h-20 bg-orange-600 rounded-full absolute rotate-[-45deg]")
+          span(class="text-2xl hover:text-4xl transition-all flex items-center justify-center w-full h-full")
+            | -10%
+
+
+
+  div(class='flex gap-2 pb-10 m-auto') 
     div(class='flex flex-col gap-8 w-96')
       //- FILTROS
       div(class="box rounded-xl border border-gray-300 bg-white p-6  md:max-w-sm")
@@ -99,7 +103,7 @@ block contentMain
     //- excursiones
     div(class='flex flex-col gap-4 flex-auto')
       each excursion in allExcursions
-        div(class="flex flex-col w-full gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row relative")
+        div(class="flex flex-col w-full gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row relative border border-gray-300 overflow-hidden")
           div(class="right-0 top-0 w-16 h-16 border-[2rem] border-solid border-orange-600 border-b-transparent border-l-transparent absolute")
           div(class="right-0 top-0 w-8 h-8 absolute")
             p(class="text-2xl hover:text-4xl transition-all text-white") 
