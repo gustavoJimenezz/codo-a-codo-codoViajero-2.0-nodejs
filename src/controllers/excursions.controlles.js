@@ -4,11 +4,16 @@ const controller = {}
 
 controller.getExcursions = async (req, res) => {
     try {
+        const allTouristDestinations = await models.TouristDestination.findAll({
+            order: [['city', 'ASC']]
+        });
+        
         const allExcursions = await models.Excursions.findAll();
         const cheapestExcursion = await models.Excursions.findOne({
             order: [['price', 'ASC']]
         });
         res.render('excursions', { 
+            allTouristDestinations,
             allExcursions,
             cheapestExcursion
         });
