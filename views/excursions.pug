@@ -72,10 +72,10 @@ block contentMain
       div(class="box rounded-xl border border-gray-300 bg-white p-6  md:max-w-sm")
         h6(class="font-medium text-base leading-7 text-black mb-5") Destinos Turisticos
         div(class="relative w-full mb-8")
-          select(id="FROM" class="h-12 border border-gray-300 text-gray-900 text-xs font-medium rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-white")
+          select(id="filterExcursions" class="h-12 border border-gray-300 text-gray-900 text-xs font-medium rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-white")
             each destine in allTouristDestinations
-              option(value=`${destine.id}`) #{destine.city}
-        button(class="w-full py-2.5 flex items-center justify-center gap-2 rounded-full bg-indigo-600 text-white font-semibold text-xs shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-200")
+              option(value= `${destine.id}`) #{destine.city}
+        button(id='searchBtn'  class="w-full py-2.5 flex items-center justify-center gap-2 rounded-full bg-indigo-600 text-white font-semibold text-xs shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-200")
           svg(width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg")
             path(d="M14.4987 13.9997L13.1654 12.6663M13.832 7.33301C13.832 10.6467 11.1457 13.333 7.83203 13.333C4.51832 13.333 1.83203 10.6467 1.83203 7.33301C1.83203 4.0193 4.51832 1.33301 7.83203 1.33301C11.1457 1.33301 13.832 4.0193 13.832 7.33301Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")
           | Search
@@ -96,38 +96,6 @@ block contentMain
                 span.text-sm.text-gray-600 $
                 input(type="number" id="FilterPriceTo" placeholder="To" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm")
 
-
-
-
-
     //- excursiones
-    div(class='flex flex-col gap-4 flex-auto')
-      each excursion in allExcursions
-        div(class="flex flex-col w-full gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row relative border border-gray-300 overflow-hidden")
-          div(class="right-0 top-0 w-16 h-16 border-[2rem] border-solid border-orange-600 border-b-transparent border-l-transparent absolute")
-          div(class="right-0 top-0 w-8 h-8 absolute")
-            p(class="text-2xl hover:text-4xl transition-all text-white") 
-              | ♥
-
-          div(class="bg-gray-200 h-52 sm:h-full sm:w-72 rounded-xl")
-            img(src=`/img/excursions/${excursion.img}` alt="" class="h-full w-full object-cover  sm:h-72")
-
-          div(class="flex flex-col flex-1 gap-5 sm:p-2")
-            div(class="flex flex-col flex-1 gap-3")
-              div(class="w-full h-14 rounded-2xl")
-                h3(class="mt-1.5 text-2xl font-medium text-gray-900") #{excursion.name}
-
-              div(class="w-full h-3 rounded-2xl")
-                p(class="mt-1.5 line-clamp-3 text-gray-700") #{excursion.description}
-
-            div(class="flex gap-3 mt-auto")
-              div(class="flex items-center justify-center w-20 h-8 bg-indigo-600 rounded-full")
-                span(class="text-white font-bold text-xl") #{excursion.price} $
-
-              div(class="flex items-center justify-center w-20 h-8 bg-indigo-600 rounded-full")
-                span(class="text-white font-bold text-xl") #{excursion.duration} hs
-
-              div(class="w-40 h-8 ml-auto rounded-full")
-                form(class="flex gap-4")              
-                  button(type="button" class="block w-full rounded bg-indigo-600 px-4 py-3 text-sm font-medium text-white transition hover:scale-105") Reservar
+    div(id="excursionsContainer" class='flex flex-col gap-4 flex-auto')
 

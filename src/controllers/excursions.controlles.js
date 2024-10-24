@@ -22,20 +22,21 @@ controller.getExcursions = async (req, res) => {
     }
 }
 
-// controller.minPrice = async (req, res) => {
-//     try {
-//         const minPrice = await models.Excursions.findOne({
-//             attributes: [[models.Sequelize.fn('MIN', models.Sequelize.col('precio')), 'minPrice']]
-//         });
+controller.getFilteredExcursions = async (req, res) => {
+    try {
+        const destinationId = parseInt(req.params.destinationId, 10);
+        const conditions = destinationId ? { destination_id: destinationId } : {};
 
-//         const minPriceExcursions = minPrice ? minPrice.get('minPrice') : 0; // Manejar el caso donde no hay resultados
-//         console.log("ACA");
-//         console.log(minPriceExcursions)
-//         res.render('excursions', { minPriceExcursions });
-//     } catch (error) {
-//         console.error('Error al obtener el precio mínimo:', error);
-//         res.status(500).json({ error: 'Error al obtener el precio mínimo' });
-//     }
-// }
+    
+        const excursions = await models.Excursions.findAll({
+            where: conditions
+        });
+
+        res.json(excursions);
+    } catch (e) {
+        res.status(500).json({ error: 'Error: ', message: e.message });
+    }
+};
+
 
 module.exports =  controller;
