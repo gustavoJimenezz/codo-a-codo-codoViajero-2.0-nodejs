@@ -1,0 +1,87 @@
+extends layouts/layout
+block contentHeader
+  div(class=[
+        `absolute`,
+        `top-1/2`,
+        `left-1/2`,
+        `transform -translate-x-1/2 -translate-y-1/2`,
+        `text-white`,
+        `text-center`
+      ])
+    h2(class=[
+      'font-bold',
+      'text-9xl sm:text-7xl md:text-8xl xl:text-9xl', 
+      'drop-shadow-2xl'
+      ]) 
+      | #TuViajePerfecto
+
+block contentMain
+  div(id='index' class='flex flex-col gap-4 p-4')
+    div(class=[
+      'text-black',
+      'text-center',
+      'p-4',
+      'flex flex-col',
+      'gap-4',
+      'justify-center',
+      'items-center',
+      'mt-4',
+      'mb-4',
+      'max-w-[80rem]',
+      'm-auto'])
+      h3(class='text-4xl text-center text-orange-500 font-black')
+        | Descubre Nuestros Destinos Turisticos
+      p(class='sm:text-base lg:text-xl xl:text-2xl text-orange-500 text-xl font-bold')
+        | Cada destino ha sido seleccionado para brindarte una experiencia única, asegurando que cada momento de tu viaje sea inolvidable. Nuestro compromiso es proporcionarte una aventura sin preocupaciones, llena de exploración y descubrimiento.
+
+    div(class='grid grid-cols-3 gap-8 pb-10 m-auto w-10/12')
+      each package, index in travelPackages 
+        a(href="#" class="group relative block bg-black")
+          img(
+            src=`/img/touristDestinations/${package.img}`
+            alt=`imagen de la ciudad de ${package.city}`
+            class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+          )
+
+          div(class="relative p-4 sm:p-6 lg:p-8")
+            p(class="text-white text-4xl font-bold") 
+              | #{package.city}
+
+            div(class="mt-32 sm:mt-48 lg:mt-64")
+              div(class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100")
+                p(class="text-sm text-white font-medium")
+                  | #{package.description}
+
+
+  div(class='min-h-80 bg-[#ece5e9] mb-8')
+    div(class=[`max-w-[80rem]`,
+                `m-auto`,
+                `grid grid-rows-2 grid-cols-4`,
+                `place-items-center`,
+                `text-center`])
+
+      div(class=[`col-span-4`])
+        h4(class='text-2xl font-semibold')
+          |Nuestro Compromiso
+        p(class='text-orange-600 text-xl italic')
+          |Esto es lo que nos diferencia y lo que nos hace unicos.
+      div()
+        img(src="/icons/experiencias-reales.png", alt="Icono extrella", class='max-h-20 object-cover mx-auto')
+        p(class="text-xl font-semibold pt-4")
+          |Experiencias Reales
+
+      div()
+        img(src="/icons/reservas-flexibles.png", alt="Icono calendarioo", class='max-h-20 object-cover mx-auto')
+        p(class="text-xl font-semibold pt-4")
+          |Reservas Flexibles
+
+      div()
+        img(src="/icons/sin-sobreprecios.png", alt="icono signo peso", class='max-h-20 object-cover mx-auto')
+        p(class="text-xl font-semibold pt-4")
+          |Sin Sobreprecios 
+
+      div()
+        img(src="/icons/atencion-personalizada.png", alt="Icono de conversacion", class='max-h-20 object-cover mx-auto')
+        p(class="text-xl font-semibold pt-4")
+          |Atencion Personalizada 
+
