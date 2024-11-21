@@ -3,10 +3,19 @@ const controller = {}
 
 controller.index = async (req, res) => {
         try {
-            const travelPackages = await models.TouristDestination.findAll();
+            const TouristDestination = await models.TouristDestination.findAll();
             const excursions = await models.Excursions.findAll();
+            const title = "Visitas guiadas y excursiones";
+            const subtitle = "Llená tu viaje";
+            const bgImage = "img/header/obelisco.jpeg";
 
-            res.render('index', {travelPackages, excursions});
+            res.render('index', {
+                allDestinations:TouristDestination, 
+                allExcursions:excursions,
+                title : title, 
+                subtitle : subtitle, 
+                bgImage : bgImage, 
+            });
         } catch (e) {
             res.status(500).json({ error: 'Error : ' , message: e.message});
         }

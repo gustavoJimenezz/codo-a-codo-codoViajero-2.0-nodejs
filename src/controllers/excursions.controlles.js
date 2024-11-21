@@ -12,7 +12,9 @@ controller.getExcursions = async (req, res) => {
         const cheapestExcursion = await models.Excursions.findOne({
             order: [['price', 'ASC']]
         });
-        res.render('excursions', { 
+
+        // cambiar por json
+        res.render('excursionsByDestine', { 
             allTouristDestinations,
             allExcursions,
             cheapestExcursion
@@ -22,21 +24,35 @@ controller.getExcursions = async (req, res) => {
     }
 }
 
-controller.getFilteredExcursions = async (req, res) => {
+controller.getExcursionsByDestination = async (req, res) => {
     try {
-        const destinationId = parseInt(req.params.destinationId, 10);
+        const destinationId = parseInt(req.params.excursionId, 10);
         const conditions = destinationId ? { destination_id: destinationId } : {};
 
-    
+        const destination = await models.TouristDestination.findOne({
+            where: {id: destinationId}
+        })
+
         const excursions = await models.Excursions.findAll({
             where: conditions
         });
+        const title = destination.city;
 
-        res.json(excursions);
+        const subtitle = destination.description;
+        
+        const bgImage = `/img/touristDestinations/${destination.img}`;
+
+        res.render('excursionsByDestine', {
+            destination : destination,
+            excursions : excursions,
+            title : title, 
+            subtitle : subtitle, 
+            bgImage : bgImage, 
+        });
+
     } catch (e) {
         res.status(500).json({ error: 'Error: ', message: e.message });
     }
 };
-
 
 module.exports =  controller;

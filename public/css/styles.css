@@ -1232,16 +1232,16 @@ video {
   padding-left: 0.75rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .pt-12 {
   padding-top: 3rem;
 }
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pl-4 {
-  padding-left: 1rem;
 }
 
 .text-left {
