@@ -1,51 +1,73 @@
-const fetchExcursions = async (selectedValue = '') => {
+document.getElementById('applyFilter').addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  const selectedValue = document.getElementById('idCiudadSelect').value;
+  if (!selectedValue) {
+    alert('Por favor, selecciona un destino.');
+    return;
+  }
+
   try {
-    const response = await fetch(`/excursions/filter/${selectedValue}`);
-    
+    const response = await fetch(`/excursions/json/${selectedValue}`);
+
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
 
     const excursions = await response.json();
-    const excursionsContainer = document.getElementById('excursionsContainer');
+    console.log(excursions);
+
+    const excursionsContainer = document.getElementById('divExcurions');
     excursionsContainer.innerHTML = '';
 
     excursions.forEach(excursion => {
       const excursionDiv = document.createElement('div');
-      excursionDiv.className = "flex flex-col w-full gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row relative border border-gray-300 overflow-hidden";
       excursionDiv.innerHTML = `
-        <div class="bg-gray-200 h-52 sm:h-full sm:w-72 rounded-xl">
-          <img src="/img/excursions/${excursion.img}" alt="${excursion.name}" class="h-full w-full object-cover sm:h-72" />
-        </div>
-        <div class="flex flex-col flex-1 gap-5 sm:p-2">
-          <h3 class="mt-1.5 text-2xl font-medium text-gray-900">${excursion.name}</h3>
-          <p class="mt-1.5 line-clamp-3 text-gray-700">${excursion.description}</p>
-          <div class="flex gap-3 mt-auto">
-            <div class="flex items-center justify-center w-20 h-8 bg-indigo-600 rounded-full">
-              <span class="text-white font-bold text-xl">${excursion.price} $</span>
-            </div>
-            <div class="flex items-center justify-center w-20 h-8 bg-indigo-600 rounded-full">
-              <span class="text-white font-bold text-xl">${excursion.duration} hs</span>
-            </div>
-            <div class="w-40 h-8 ml-auto rounded-full">
-              <button type="button" class="block w-full rounded bg-indigo-600 px-4 py-3 text-sm font-medium text-white transition hover:scale-105">Reservar</button>
-            </div>
+        <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+          <img alt="" src="/img/excursions/${excursion.img}" class="h-56 w-full rounded-md object-cover">
+
+          <div class="mt-2">
+              <dl>
+                  <div>
+                      <dt class="sr-only">Title</dt>
+                      <dd class="font-medium">${excursion.name}</dd>
+                  </div>
+                  <div>
+                      <dt class="sr-only">Description</dt>
+                      <dd class="text-sm text-gray-500">${excursion.description}</dd>
+                  </div>
+              </dl>
+
+              <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="12" y1="1" x2="12" y2="23"></line>
+                          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                      </svg>
+                      <div class="mt-1.5 sm:mt-0">
+                          <p class="text-gray-500">Price</p>
+                          <p class="font-medium">${excursion.price}</p>
+                      </div>
+                  </div>
+
+                  <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"></path>
+                          <path d="M19 6l-7 6V2.5"></path>
+                      </svg>
+                      <div class="mt-1.5 sm:mt-0">
+                          <p class="text-gray-500">Duration</p>
+                          <p class="font-medium">${excursion.duration} hs</p>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
+      </a>
       `;
       excursionsContainer.appendChild(excursionDiv);
     });
-
+    
   } catch (error) {
     console.error('Fetch error:', error);
   }
-};
-
-window.onload = () => {
-  fetchExcursions();
-};
-
-document.getElementById('searchBtn').addEventListener('click', () => {
-  const selectedValue = document.getElementById('filterExcursions').value;
-  fetchExcursions(selectedValue);
 });

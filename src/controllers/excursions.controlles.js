@@ -26,57 +26,48 @@ controller.index = async (req, res) => {
     }
 }
 
-controller.getExcursions = async (req, res) => {
-    try {
-        const allTouristDestinations = await models.TouristDestination.findAll({
-            order: [['city', 'ASC']]
-        });
-        
-        const allExcursions = await models.Excursions.findAll();
-        const cheapestExcursion = await models.Excursions.findOne({
-            order: [['price', 'ASC']]
-        });
-
-        // cambiar por json
-        res.render('excursionsByDestine', { 
-            allTouristDestinations,
-            allExcursions,
-            cheapestExcursion
-        });
-    } catch (e) {
-        res.status(500).json({ error: 'Error: ' , message: e.message});
-    }
-}
-
 controller.getExcursionsByDestination = async (req, res) => {
     try {
-        const destinationId = parseInt(req.params.excursionId, 10);
+        const destinationId = parseInt(req.params.destinationId, 10);
         const conditions = destinationId ? { destination_id: destinationId } : {};
-
-        const destination = await models.TouristDestination.findOne({
-            where: {id: destinationId}
-        })
 
         const excursions = await models.Excursions.findAll({
             where: conditions
         });
-        const title = destination.city;
-
-        const subtitle = destination.description;
         
+        const destination = await models.TouristDestination.findOne({
+            where: {id: destinationId}
+        })
+
+        const title = destination.city;
+        const subtitle = destination.description;
         const bgImage = `/img/touristDestinations/${destination.img}`;
 
         res.render('excursionsByDestine', {
-            destination : destination,
             excursions : excursions,
             title : title, 
             subtitle : subtitle, 
             bgImage : bgImage, 
         });
-
     } catch (e) {
         res.status(500).json({ error: 'Error: ', message: e.message });
     }
 };
+
+controller.getExcursionsByDestinationJson = async (req, res) => {
+    try {
+        const destinationId = parseInt(req.params.destinationId, 10);
+        const conditions = destinationId ? { destination_id: destinationId } : {};
+        console.log(destinationId);
+        const excursions = await models.Excursions.findAll({
+            where: conditions
+        });
+
+        res.json(excursions);
+    } catch (e) {
+        res.status(500).json({ error: 'Error: ' , message: e.message});
+    }
+}
+
 
 module.exports =  controller;

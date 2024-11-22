@@ -3,14 +3,15 @@ extends layouts/layout
 block contentMain
   section.py-8(class="w-full mx-auto bg-nordic-gray-light flex pt-12 bg-cover bg-right md:pt-0 md:items-center" style="max-width:1600px;")
     .container.mx-auto.flex.items-center.flex-wrap.pt-4.pb-12
+
       //- PRINCIPALES DESTINOS
       .w-full.container.mx-auto.flex.items-center.justify-between.mt-0.px-2.py-3
         h2.w-full.uppercase.tracking-wide.text-center(class='mt-[15px] mb-[30px] text-[2.5rem] font-light')
           | Principales destinos
 
       div(class='grid grid-cols-3 gap-8 pb-10 m-auto ')
-        each package, index in allDestinations 
-          a(href=`/destination/${package.id}` class="group relative block bg-black hover:shadow-xl")
+        each package, index in allDestinations
+          a(href=`/excursions/${package.id}` class="group relative block bg-black hover:shadow-xl")
             img(
               src=`/img/touristDestinations/${package.img}`
               alt=`imagen de la ciudad de ${package.city}`
