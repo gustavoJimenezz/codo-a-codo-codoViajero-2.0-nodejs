@@ -4,12 +4,18 @@ const controller = {}
 
 controller.index = async (req, res) => {
     try {
+
+        const destinations = await models.TouristDestination.findAll({
+          });
+          
+
         const allExcursions = await models.Excursions.findAll();
         const title = "Excursiones";
         const subtitle = "Elegi tu aventura";
         const bgImage = "/img/header/obelisco.jpeg";
 
         res.render('excursions', {
+            destinations : destinations,
             excursions : allExcursions,
             title : title, 
             subtitle : subtitle, 
