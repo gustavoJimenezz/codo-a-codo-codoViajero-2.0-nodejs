@@ -2,6 +2,24 @@ const { where } = require('sequelize');
 const models = require('../database/models/index')
 const controller = {}
 
+controller.index = async (req, res) => {
+    try {
+        const allExcursions = await models.Excursions.findAll();
+        const title = "Excursiones";
+        const subtitle = "Elegi tu aventura";
+        const bgImage = "/img/header/obelisco.jpeg";
+
+        res.render('excursions', {
+            excursions : allExcursions,
+            title : title, 
+            subtitle : subtitle, 
+            bgImage : bgImage, 
+        });
+    } catch (e) {
+        res.status(500).json({ error: 'Error : ' , message: e.message});
+    }
+}
+
 controller.getExcursions = async (req, res) => {
     try {
         const allTouristDestinations = await models.TouristDestination.findAll({
