@@ -13,34 +13,37 @@ block contentMain
             .flex.pag-4
 
                 div(class="flex flex-col gap-4 p-4")
-                    //- FILTRO
+                    //- FILTROs
                     div(class="group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2")
                         div(class="w-80 rounded border border-gray-200 bg-white")
                             header(class="flex items-center justify-between p-4")
                                 span(class="text-sm text-gray-700") Destinos
 
+                            
+                                button(type="button" id="reset" class="text-sm text-gray-900 underline underline-offset-4") 
+                                    | Reset
+
+
                             div.p-4(class="border-t border-gray-200")
                                 select(id="idCiudadSelect" name="idCiudadSelect" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm")
-                                    option(value="" hidden) Ciudades
+                                    option(value="0" hidden) Ciudades
                                     each destination in destinations
-                                        optgroup(label="" hidden)
                                         option(class="p-4" value=`${destination.id}`) #{destination.city}        
 
                     div(class="w-80 rounded border border-gray-200 bg-white")
 
                         header(class="flex items-center justify-between p-4")
-                            span(class="text-sm text-gray-700") The highest price is $600
-                            button(type="button" class="text-sm text-gray-900 underline underline-offset-4") Reset
+                            span(class="text-sm text-gray-700") El precio mas bajo es de 100
 
                         div(class="border-t border-gray-200 p-4")
                             div(class="flex justify-between gap-4")
                                 label(for="FilterPriceFrom" class="flex items-center gap-2")
                                     span(class="text-sm text-gray-600") $
-                                    input(type="number" id="FilterPriceFrom" placeholder="From" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm")
+                                    input(type="number" id="FilterPriceFrom" placeholder="From" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm" value=0)
                                 
                                 label(for="FilterPriceTo" class="flex items-center gap-2")
                                     span(class="text-sm text-gray-600") $
-                                    input(type="number" id="FilterPriceTo" placeholder="To" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm")
+                                    input(type="number" id="FilterPriceTo" placeholder="To" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm" value=0)
 
 
                     a(id="applyFilter" class="inline-flex items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500")

@@ -71,3 +71,10 @@ document.getElementById('applyFilter').addEventListener('click', async (event) =
     console.error('Fetch error:', error);
   }
 });
+
+
+document.getElementById('reset').addEventListener('click', async (event)=>{
+  const selectedValue = document.getElementById('idCiudadSelect');
+  selectedValue.value = '0'
+
+})
