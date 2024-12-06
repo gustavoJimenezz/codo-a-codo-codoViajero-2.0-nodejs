@@ -78,3 +78,17 @@ document.getElementById('reset').addEventListener('click', async (event)=>{
   selectedValue.value = '0'
 
 })
+
+// const resetButton = document.getElementById('reset');
+//   if (resetButton) {
+//     resetButton.addEventListener('click', (event) => {
+//       const selectedValue = document.getElementById('idCiudadSelect');
+//       const filterPriceFrom = document.getElementById('FilterPriceFrom');
+//       const filterPriceTo = document.getElementById('FilterPriceTo');
+
+//       selectedValue.value = '0';
+//       filterPriceFrom.value = '0';
+//       filterPriceTo.value = '0';
+//     })
+//   }
+
