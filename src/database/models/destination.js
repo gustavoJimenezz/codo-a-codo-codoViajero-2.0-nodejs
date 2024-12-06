@@ -1,20 +1,20 @@
 'use strict';
 const {
-  Model
+  Model, DataTypes
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Destinations extends Model {
+module.exports = (sequelize) => {
+  class Destination extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.hasMany(models.Excursions, { foreignKey: 'destination_id' });
+      this.hasMany(models.Excursion, { foreignKey: 'destination_id' });
     }
   }
 
-  Destinations.init(
+  Destination.init(
     {
       id: {
         type: DataTypes.BIGINT,
@@ -27,8 +27,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      img: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -38,14 +42,20 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.DATE,
       },
+      deletedAt: {
+        type: DataTypes.DATE,
+        field: 'deleted_at',
+      },
     }, 
     {
     sequelize,
-    modelName: 'Destinations',
+    // modelName: 'Destination',
+    tableName: 'destinations',
     timestamps: 'true',
+    paranoid: true,
     freezeTableName: true, 
   }
 
 );
-  return Destinations;
+  return Destination;
 };

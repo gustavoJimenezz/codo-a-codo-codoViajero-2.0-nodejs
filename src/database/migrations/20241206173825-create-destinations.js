@@ -5,7 +5,6 @@ module.exports = {
     await queryInterface.createTable('destinations', {
       id: {
         type: Sequelize.BIGINT,
-        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
@@ -14,22 +13,12 @@ module.exports = {
         allowNull: false,
       },
       description: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      duration: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        comment: 'Duración en horas o días',
-      },
-      price: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING(1000),
         allowNull: false,
       },
       img: {
         type: Sequelize.STRING,
-        allowNull: true,
-        comment: 'URL de la imagen de la excursión',
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -42,16 +31,6 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE,
         field: 'deleted_at',
-      },
-      destination_id: {
-        type: Sequelize.BIGINT,
-        allowNull: false,
-        references: {
-          model: 'destinations',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
     }
   );

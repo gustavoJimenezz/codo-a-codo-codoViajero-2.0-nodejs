@@ -14,13 +14,13 @@ block contentMain
           a(href=`/excursions/${package.id}` class="group relative block bg-black hover:shadow-xl")
             img(
               src=`/img/touristDestinations/${package.img}`
-              alt=`imagen de la ciudad de ${package.city}`
+              alt=`imagen de la ciudad de ${package.name}`
               class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
             )
 
             div(class="relative p-4 sm:p-6 lg:p-8")
               p(class="text-white text-4xl font-bold") 
-                | #{package.city}
+                | #{package.name}
 
               div(class="mt-32 sm:mt-48 lg:mt-64")
                 div(class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100")

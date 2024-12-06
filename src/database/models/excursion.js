@@ -1,22 +1,22 @@
 'use strict';
 const {
-  Model
+  Model, DataTypes
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Excursions extends Model {
+  class Excursion extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Destinations, {
+      this.belongsTo(models.Destination, {
           foreignKey: 'destination_id',
         });
     }
   }
-  Excursions.init({
+  Excursion.init({
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Destinations',
+        model: 'destinations',
         key: 'id',
       },
       onUpdate: 'CASCADE',
@@ -70,9 +70,10 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   {
     sequelize,
-    modelName: 'Excursions',
+    // modelName: 'Excursions',
+    tableName: 'excursions',
     timestamps: 'true',
     freezeTableName: true, 
   });
-  return Excursions;
+  return Excursion;
 };

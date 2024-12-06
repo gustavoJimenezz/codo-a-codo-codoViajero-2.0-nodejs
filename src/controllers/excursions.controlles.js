@@ -39,7 +39,7 @@ controller.getExcursionsByDestination = async (req, res) => {
             where: {id: destinationId}
         })
 
-        const title = destination.city;
+        const title = destination.name;
         const subtitle = destination.description;
         const bgImage = `/img/touristDestinations/${destination.img}`;
 

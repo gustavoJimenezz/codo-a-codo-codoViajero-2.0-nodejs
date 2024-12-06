@@ -28,7 +28,7 @@ block contentMain
                                 select(id="idCiudadSelect" name="idCiudadSelect" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm")
                                     option(value="0" hidden) Ciudades
                                     each destination in destinations
-                                        option(class="p-4" value=`${destination.id}`) #{destination.city}        
+                                        option(class="p-4" value=`${destination.id}`) #{destination.name}        
 
                     div(class="w-80 rounded border border-gray-200 bg-white")
 

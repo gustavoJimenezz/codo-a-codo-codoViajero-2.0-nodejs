@@ -2,8 +2,8 @@ const models = require('../database/models/index')
 const controller = {}
 controller.index = async (req, res) => {
         try {
-            const TouristDestination = await models.Destinations.findAll();
-            const excursions = await models.Excursions.findAll();
+            const TouristDestination = await models.Destination.findAll();
+            const excursions = await models.Excursion.findAll();
             const title = "Visitas guiadas y excursiones";
             const subtitle = "Llená tu viaje";
             const bgImage = "img/header/obelisco.jpeg";

@@ -1,287 +1,287 @@
-extends layouts/layout
-block contentHeader
-  div(class=[
-        `absolute`,
-        `top-1/2`,
-        `left-1/2`,
-        `transform -translate-x-1/2 -translate-y-1/2`,
-        `text-white`,
-        `text-center`
-      ])
-    h2(class=[
-      'font-bold',
-      'text-9xl sm:text-7xl md:text-8xl xl:text-9xl', 
-      'drop-shadow-2xl'
-      ]) 
-      | #TuViajePerfecto
+//- extends layouts/layout
+//- block contentHeader
+//-   div(class=[
+//-         `absolute`,
+//-         `top-1/2`,
+//-         `left-1/2`,
+//-         `transform -translate-x-1/2 -translate-y-1/2`,
+//-         `text-white`,
+//-         `text-center`
+//-       ])
+//-     h2(class=[
+//-       'font-bold',
+//-       'text-9xl sm:text-7xl md:text-8xl xl:text-9xl', 
+//-       'drop-shadow-2xl'
+//-       ]) 
+//-       | #TuViajePerfecto
 
-block contentMain
-  div(id='index' class='flex flex-col gap-4 p-4')
-    div(class=[
-      'text-black',
-      'text-center',
-      'p-4',
-      'flex flex-col',
-      'gap-4',
-      'justify-center',
-      'items-center',
-      'mt-4',
-      'mb-4',
-      'max-w-[80rem]',
-      'm-auto'])
-      h3(class='text-4xl text-center text-orange-500 font-black')
-        | Descubre Nuestros Destinos Turisticos
-      p(class='sm:text-base lg:text-xl xl:text-2xl text-orange-500 text-xl font-bold')
-        | Cada destino ha sido seleccionado para brindarte una experiencia única, asegurando que cada momento de tu viaje sea inolvidable. Nuestro compromiso es proporcionarte una aventura sin preocupaciones, llena de exploración y descubrimiento.
+//- block contentMain
+//-   div(id='index' class='flex flex-col gap-4 p-4')
+//-     div(class=[
+//-       'text-black',
+//-       'text-center',
+//-       'p-4',
+//-       'flex flex-col',
+//-       'gap-4',
+//-       'justify-center',
+//-       'items-center',
+//-       'mt-4',
+//-       'mb-4',
+//-       'max-w-[80rem]',
+//-       'm-auto'])
+//-       h3(class='text-4xl text-center text-orange-500 font-black')
+//-         | Descubre Nuestros Destinos Turisticos
+//-       p(class='sm:text-base lg:text-xl xl:text-2xl text-orange-500 text-xl font-bold')
+//-         | Cada destino ha sido seleccionado para brindarte una experiencia única, asegurando que cada momento de tu viaje sea inolvidable. Nuestro compromiso es proporcionarte una aventura sin preocupaciones, llena de exploración y descubrimiento.
 
-    div(class='grid grid-cols-3 gap-8 pb-10 m-auto w-10/12')
-      each package in allExcursions 
-        a(href="#" class="group relative block bg-black")
-          img(
-            src=`/img/touristDestinations/${package.img}`
-            alt=`imagen de la ciudad de ${package.city}`
-            class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-          )
+//-     div(class='grid grid-cols-3 gap-8 pb-10 m-auto w-10/12')
+//-       each package in allExcursions 
+//-         a(href="#" class="group relative block bg-black")
+//-           img(
+//-             src=`/img/touristDestinations/${package.img}`
+//-             alt=`imagen de la ciudad de ${package.city}`
+//-             class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+//-           )
 
-          div(class="relative p-4 sm:p-6 lg:p-8")
-            p(class="text-white text-4xl font-bold") 
-              | #{package.city}
+//-           div(class="relative p-4 sm:p-6 lg:p-8")
+//-             p(class="text-white text-4xl font-bold") 
+//-               | #{package.city}
 
-            div(class="mt-32 sm:mt-48 lg:mt-64")
-              div(class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100")
-                p(class="text-sm text-white font-medium")
-                  | #{package.description}
-
-
-  div(class='min-h-80 bg-[#ece5e9] mb-8')
-    div(class=[`max-w-[80rem]`,
-                `m-auto`,
-                `grid grid-rows-2 grid-cols-4`,
-                `place-items-center`,
-                `text-center`])
-
-      div(class=[`col-span-4`])
-        h4(class='text-2xl font-semibold')
-          |Nuestro Compromiso
-        p(class='text-orange-600 text-xl italic')
-          |Esto es lo que nos diferencia y lo que nos hace unicos.
-      div()
-        img(src="/icons/experiencias-reales.png", alt="Icono extrella", class='max-h-20 object-cover mx-auto')
-        p(class="text-xl font-semibold pt-4")
-          |Experiencias Reales
-
-      div()
-        img(src="/icons/reservas-flexibles.png", alt="Icono calendarioo", class='max-h-20 object-cover mx-auto')
-        p(class="text-xl font-semibold pt-4")
-          |Reservas Flexibles
-
-      div()
-        img(src="/icons/sin-sobreprecios.png", alt="icono signo peso", class='max-h-20 object-cover mx-auto')
-        p(class="text-xl font-semibold pt-4")
-          |Sin Sobreprecios 
-
-      div()
-        img(src="/icons/atencion-personalizada.png", alt="Icono de conversacion", class='max-h-20 object-cover mx-auto')
-        p(class="text-xl font-semibold pt-4")
-          |Atencion Personalizada 
+//-             div(class="mt-32 sm:mt-48 lg:mt-64")
+//-               div(class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100")
+//-                 p(class="text-sm text-white font-medium")
+//-                   | #{package.description}
 
 
+//-   div(class='min-h-80 bg-[#ece5e9] mb-8')
+//-     div(class=[`max-w-[80rem]`,
+//-                 `m-auto`,
+//-                 `grid grid-rows-2 grid-cols-4`,
+//-                 `place-items-center`,
+//-                 `text-center`])
 
-<!--
-  Heads up! 👋
+//-       div(class=[`col-span-4`])
+//-         h4(class='text-2xl font-semibold')
+//-           |Nuestro Compromiso
+//-         p(class='text-orange-600 text-xl italic')
+//-           |Esto es lo que nos diferencia y lo que nos hace unicos.
+//-       div()
+//-         img(src="/icons/experiencias-reales.png", alt="Icono extrella", class='max-h-20 object-cover mx-auto')
+//-         p(class="text-xl font-semibold pt-4")
+//-           |Experiencias Reales
 
-  Plugins:
-    - @tailwindcss/forms
--->
+//-       div()
+//-         img(src="/icons/reservas-flexibles.png", alt="Icono calendarioo", class='max-h-20 object-cover mx-auto')
+//-         p(class="text-xl font-semibold pt-4")
+//-           |Reservas Flexibles
 
-<div class="flex gap-8">
-  <div class="relative">
-    <details class="group [&_summary::-webkit-details-marker]:hidden">
-      <summary
-        class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
-      >
-        <span class="text-sm font-medium"> Availability </span>
+//-       div()
+//-         img(src="/icons/sin-sobreprecios.png", alt="icono signo peso", class='max-h-20 object-cover mx-auto')
+//-         p(class="text-xl font-semibold pt-4")
+//-           |Sin Sobreprecios 
 
-        <span class="transition group-open:-rotate-180">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-4"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-        </span>
-      </summary>
-
-      <div class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
-        <div class="w-96 rounded border border-gray-200 bg-white">
-          <header class="flex items-center justify-between p-4">
-            <span class="text-sm text-gray-700"> 0 Selected </span>
-
-            <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-              Reset
-            </button>
-          </header>
-
-          <ul class="space-y-1 border-t border-gray-200 p-4">
-            <li>
-              <label for="FilterInStock" class="inline-flex items-center gap-2">
-                <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
-
-                <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
-              </label>
-            </li>
-
-            <li>
-              <label for="FilterPreOrder" class="inline-flex items-center gap-2">
-                <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
-
-                <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
-              </label>
-            </li>
-
-            <li>
-              <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="FilterOutOfStock"
-                  class="size-5 rounded border-gray-300"
-                />
-
-                <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
-              </label>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </details>
-  </div>
-
-  <div class="relative">
-    <details class="group [&_summary::-webkit-details-marker]:hidden">
-      <summary
-        class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
-      >
-        <span class="text-sm font-medium"> Price </span>
-
-        <span class="transition group-open:-rotate-180">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-4"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-        </span>
-      </summary>
-
-      <div class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
-        <div class="w-96 rounded border border-gray-200 bg-white">
-          <header class="flex items-center justify-between p-4">
-            <span class="text-sm text-gray-700"> The highest price is $600 </span>
-
-            <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-              Reset
-            </button>
-          </header>
-
-          <div class="border-t border-gray-200 p-4">
-            <div class="flex justify-between gap-4">
-              <label for="FilterPriceFrom" class="flex items-center gap-2">
-                <span class="text-sm text-gray-600">$</span>
-
-                <input
-                  type="number"
-                  id="FilterPriceFrom"
-                  placeholder="From"
-                  class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                />
-              </label>
-
-              <label for="FilterPriceTo" class="flex items-center gap-2">
-                <span class="text-sm text-gray-600">$</span>
-
-                <input
-                  type="number"
-                  id="FilterPriceTo"
-                  placeholder="To"
-                  class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                />
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
+//-       div()
+//-         img(src="/icons/atencion-personalizada.png", alt="Icono de conversacion", class='max-h-20 object-cover mx-auto')
+//-         p(class="text-xl font-semibold pt-4")
+//-           |Atencion Personalizada 
 
 
-    </details>
-  </div>
-</div>
+
+//- <!--
+//-   Heads up! 👋
+
+//-   Plugins:
+//-     - @tailwindcss/forms
+//- -->
+
+//- <div class="flex gap-8">
+//-   <div class="relative">
+//-     <details class="group [&_summary::-webkit-details-marker]:hidden">
+//-       <summary
+//-         class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+//-       >
+//-         <span class="text-sm font-medium"> Availability </span>
+
+//-         <span class="transition group-open:-rotate-180">
+//-           <svg
+//-             xmlns="http://www.w3.org/2000/svg"
+//-             fill="none"
+//-             viewBox="0 0 24 24"
+//-             stroke-width="1.5"
+//-             stroke="currentColor"
+//-             class="size-4"
+//-           >
+//-             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+//-           </svg>
+//-         </span>
+//-       </summary>
+
+//-       <div class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
+//-         <div class="w-96 rounded border border-gray-200 bg-white">
+//-           <header class="flex items-center justify-between p-4">
+//-             <span class="text-sm text-gray-700"> 0 Selected </span>
+
+//-             <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+//-               Reset
+//-             </button>
+//-           </header>
+
+//-           <ul class="space-y-1 border-t border-gray-200 p-4">
+//-             <li>
+//-               <label for="FilterInStock" class="inline-flex items-center gap-2">
+//-                 <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
+
+//-                 <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
+//-               </label>
+//-             </li>
+
+//-             <li>
+//-               <label for="FilterPreOrder" class="inline-flex items-center gap-2">
+//-                 <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
+
+//-                 <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
+//-               </label>
+//-             </li>
+
+//-             <li>
+//-               <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
+//-                 <input
+//-                   type="checkbox"
+//-                   id="FilterOutOfStock"
+//-                   class="size-5 rounded border-gray-300"
+//-                 />
+
+//-                 <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
+//-               </label>
+//-             </li>
+//-           </ul>
+//-         </div>
+//-       </div>
+
+//-     </details>
+//-   </div>
+
+//-   <div class="relative">
+//-     <details class="group [&_summary::-webkit-details-marker]:hidden">
+//-       <summary
+//-         class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+//-       >
+//-         <span class="text-sm font-medium"> Price </span>
+
+//-         <span class="transition group-open:-rotate-180">
+//-           <svg
+//-             xmlns="http://www.w3.org/2000/svg"
+//-             fill="none"
+//-             viewBox="0 0 24 24"
+//-             stroke-width="1.5"
+//-             stroke="currentColor"
+//-             class="size-4"
+//-           >
+//-             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+//-           </svg>
+//-         </span>
+//-       </summary>
+
+//-       <div class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
+//-         <div class="w-96 rounded border border-gray-200 bg-white">
+//-           <header class="flex items-center justify-between p-4">
+//-             <span class="text-sm text-gray-700"> The highest price is $600 </span>
+
+//-             <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+//-               Reset
+//-             </button>
+//-           </header>
+
+//-           <div class="border-t border-gray-200 p-4">
+//-             <div class="flex justify-between gap-4">
+//-               <label for="FilterPriceFrom" class="flex items-center gap-2">
+//-                 <span class="text-sm text-gray-600">$</span>
+
+//-                 <input
+//-                   type="number"
+//-                   id="FilterPriceFrom"
+//-                   placeholder="From"
+//-                   class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+//-                 />
+//-               </label>
+
+//-               <label for="FilterPriceTo" class="flex items-center gap-2">
+//-                 <span class="text-sm text-gray-600">$</span>
+
+//-                 <input
+//-                   type="number"
+//-                   id="FilterPriceTo"
+//-                   placeholder="To"
+//-                   class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+//-                 />
+//-               </label>
+//-             </div>
+//-           </div>
+//-         </div>
+//-       </div>
 
 
+//-     </details>
+//-   </div>
+//- </div>
 
 
 
 
-<div>
-  <label for="HeadlineAct" class="block text-sm font-medium text-gray-900"> Headliner </label>
-
-  <select
-    name="HeadlineAct"
-    id="HeadlineAct"
-    class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
-  >
-    <option value="">Please select</option>
-    <optgroup label="A">
-      <option value="AK">Albert King</option>
-    </optgroup>
-
-    <optgroup label="B">
-      <option value="BBK">B.B King</option>
-      <option value="BG">Buddy Guy</option>
-    </optgroup>
-
-    <optgroup label="E">
-      <option value="EC">Eric Clapton</option>
-    </optgroup>
-
-    <optgroup label="J">
-      <option value="JM">John Mayer</option>
-      <option value="JH">Jimi Hendrix</option>
-    </optgroup>
-
-    <optgroup label="S">
-      <option value="SRV">Stevie Ray Vaughn</option>
-    </optgroup>
-  </select>
-</div>
 
 
-<a
-  class="inline-flex items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-  href="#"
->
-  <span class="text-sm font-medium"> Download </span>
+//- <div>
+//-   <label for="HeadlineAct" class="block text-sm font-medium text-gray-900"> Headliner </label>
 
-  <svg
-    class="size-5 rtl:rotate-180"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M17 8l4 4m0 0l-4 4m4-4H3"
-    />
-  </svg>
-</a>
+//-   <select
+//-     name="HeadlineAct"
+//-     id="HeadlineAct"
+//-     class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+//-   >
+//-     <option value="">Please select</option>
+//-     <optgroup label="A">
+//-       <option value="AK">Albert King</option>
+//-     </optgroup>
+
+//-     <optgroup label="B">
+//-       <option value="BBK">B.B King</option>
+//-       <option value="BG">Buddy Guy</option>
+//-     </optgroup>
+
+//-     <optgroup label="E">
+//-       <option value="EC">Eric Clapton</option>
+//-     </optgroup>
+
+//-     <optgroup label="J">
+//-       <option value="JM">John Mayer</option>
+//-       <option value="JH">Jimi Hendrix</option>
+//-     </optgroup>
+
+//-     <optgroup label="S">
+//-       <option value="SRV">Stevie Ray Vaughn</option>
+//-     </optgroup>
+//-   </select>
+//- </div>
+
+
+//- <a
+//-   class="inline-flex items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+//-   href="#"
+//- >
+//-   <span class="text-sm font-medium"> Download </span>
+
+//-   <svg
+//-     class="size-5 rtl:rotate-180"
+//-     xmlns="http://www.w3.org/2000/svg"
+//-     fill="none"
+//-     viewBox="0 0 24 24"
+//-     stroke="currentColor"
+//-   >
+//-     <path
+//-       stroke-linecap="round"
+//-       stroke-linejoin="round"
+//-       stroke-width="2"
+//-       d="M17 8l4 4m0 0l-4 4m4-4H3"
+//-     />
+//-   </svg>
+//- </a>

@@ -16,9 +16,9 @@ exports.GetTouristDestinationByID = async (req, res) => {
 
 exports.AddNewTouristDestination = async (req, res) => {
     try {
-        const { city, description, img } = req.body;
+        const { name, description, img } = req.body;
         const newTouristDestination = await models.TouristDestination.create({
-            city,
+            name,
             description,
             img,
 

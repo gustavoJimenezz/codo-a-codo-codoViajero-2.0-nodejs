@@ -2,13 +2,12 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    // Obtener los destinos y sus ids
     const [destinos] = await queryInterface.sequelize.query(
-      'SELECT id, city FROM `destinations`;'
+      'SELECT id, name FROM `destinations`;'
     );
 
     const destinoMap = destinos.reduce((map, destino) => {
-      map[destino.city] = destino.id;
+      map[destino.name] = destino.id;
       return map;
     }, {});
 
@@ -148,7 +147,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    // Eliminar las excursiones
-    await queryInterface.bulkDelete('excursion', null, {});
+    await queryInterface.bulkDelete('excursions', null, {});
   }
 };
