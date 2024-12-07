@@ -93,14 +93,14 @@ controller.getExcursionsById = async (req, res) =>{
     try {
         const excursionId = parseInt(req.params.excursionId); 
 
-        const excursions = await models.Excursion.findOne({
+        const excursion = await models.Excursion.findOne({
             where : {id : excursionId}
         })
 
         res.render('showExcursion', {
-            excursions : excursions
+            excursion : excursion
         })
-    } catch (error) {
+    } catch (e) {
         res.status(500).json({ error: 'Error : ' , message: e.message});
     }
 }
