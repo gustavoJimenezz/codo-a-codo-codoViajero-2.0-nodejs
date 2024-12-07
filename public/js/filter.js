@@ -2,20 +2,24 @@ document.getElementById('applyFilter').addEventListener('click', async (event) =
   event.preventDefault();
 
   const selectedValue = document.getElementById('idCiudadSelect').value;
-  if (!selectedValue) {
-    alert('Por favor, selecciona un destino.');
+  const priceFrom = document.getElementById('priceFrom').value;
+  const priceTo= document.getElementById('priceTo').value;
+
+  if (!selectedValue || !priceFrom || !priceTo) {
+    alert('Por favor, selecciona un destino o rango de precios.');
     return;
   }
 
   try {
-    const response = await fetch(`/excursions/json/${selectedValue}`);
+    const url = `http://localhost:3000/excursions/filter?destination_id=${selectedValue}&priceFrom=${priceFrom}&priceTo=${priceTo}`
+    const response = await fetch(url);
+
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Network response was not okasdsad');
     }
 
     const excursions = await response.json();
-    console.log(excursions);
 
     const excursionsContainer = document.getElementById('divExcurions');
     excursionsContainer.innerHTML = '';
@@ -75,20 +79,10 @@ document.getElementById('applyFilter').addEventListener('click', async (event) =
 
 document.getElementById('reset').addEventListener('click', async (event)=>{
   const selectedValue = document.getElementById('idCiudadSelect');
+  const priceFrom = document.getElementById('priceFrom');
+  const priceTo = document.getElementById('priceTo');
   selectedValue.value = '0'
+  priceTo.value = '0'
+  priceFrom.value = '0';
 
 })
-
-// const resetButton = document.getElementById('reset');
-//   if (resetButton) {
-//     resetButton.addEventListener('click', (event) => {
-//       const selectedValue = document.getElementById('idCiudadSelect');
-//       const filterPriceFrom = document.getElementById('FilterPriceFrom');
-//       const filterPriceTo = document.getElementById('FilterPriceTo');
-
-//       selectedValue.value = '0';
-//       filterPriceFrom.value = '0';
-//       filterPriceTo.value = '0';
-//     })
-//   }
-

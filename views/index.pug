@@ -11,7 +11,7 @@ block contentMain
 
       div(class='grid grid-cols-3 gap-8 pb-10 m-auto ')
         each package, index in allDestinations
-          a(href=`/excursions/${package.id}` class="group relative block bg-black hover:shadow-xl")
+          a(href=`/excursions/excursions/details/${package.id}` class="group relative block bg-black hover:shadow-xl")
             img(
               src=`/img/touristDestinations/${package.img}`
               alt=`imagen de la ciudad de ${package.name}`

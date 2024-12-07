@@ -1,15 +1,17 @@
-const { where } = require('sequelize');
+const { where, Op } = require('sequelize');
 const models = require('../database/models/index')
+
+const excursions = require('../database/models/excursion')
+
 const controller = {}
 
 controller.index = async (req, res) => {
     try {
 
-        const destinations = await models.TouristDestination.findAll({
-          });
+        const destinations = await models.Destination.findAll();
           
 
-        const allExcursions = await models.Excursions.findAll();
+        const allExcursions = await models.Excursion.findAll();
         const title = "Excursiones";
         const subtitle = "Elegi tu aventura";
         const bgImage = "/img/header/obelisco.jpeg";
@@ -31,11 +33,11 @@ controller.getExcursionsByDestination = async (req, res) => {
         const destinationId = parseInt(req.params.destinationId, 10);
         const conditions = destinationId ? { destination_id: destinationId } : {};
 
-        const excursions = await models.Excursions.findAll({
+        const excursions = await models.Excursion.findAll({
             where: conditions
         });
         
-        const destination = await models.TouristDestination.findOne({
+        const destination = await models.Destination.findOne({
             where: {id: destinationId}
         })
 
@@ -54,20 +56,36 @@ controller.getExcursionsByDestination = async (req, res) => {
     }
 };
 
-controller.getExcursionsByDestinationJson = async (req, res) => {
+controller.getExcursionsByDestinationFilter = async (req, res) => {
     try {
-        const destinationId = parseInt(req.params.destinationId, 10);
-        const conditions = destinationId ? { destination_id: destinationId } : {};
-        console.log(destinationId);
-        const excursions = await models.Excursions.findAll({
+        const {destination_id, priceFrom, priceTo } = req.query;
+
+        const conditions = {};
+        if(destination_id && destination_id > 0 ){
+            conditions.destination_id = parseInt(destination_id);
+        }
+
+        if (priceFrom > 0  || priceTo > priceFrom ){
+            conditions.price = {};
+
+            if (priceFrom) {
+                conditions.price[Op.gte] = priceFrom;
+            }
+
+            if (priceTo) {
+                conditions.price[Op.lte] = priceTo;
+            }
+        }
+
+        const excursions = await models.Excursion.findAll({
             where: conditions
         });
 
         res.json(excursions);
+
     } catch (e) {
         res.status(500).json({ error: 'Error: ' , message: e.message});
     }
-}
-
+};
 
 module.exports =  controller;
