@@ -10,8 +10,8 @@ block contentMain
           | Principales destinos
 
       div(class='grid grid-cols-3 gap-8 pb-10 m-auto ')
-        each package, index in allDestinations
-          a(href=`/excursions/excursions/details/${package.id}` class="group relative block bg-black hover:shadow-xl")
+        each package in allDestinations
+          a(href=`/excursions/destination/${package.id}` class="group relative block bg-black hover:shadow-xl")
             img(
               src=`/img/touristDestinations/${package.img}`
               alt=`imagen de la ciudad de ${package.name}`
@@ -34,7 +34,7 @@ block contentMain
           
       div(class='grid grid-cols-4 gap-8 flex-auto')
         each excursion in allExcursions
-          a(href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100")
+          a(href=`/excursions/details/${excursion.id}` class="block rounded-lg p-4 shadow-sm shadow-indigo-100")
             img(
               alt=""
               src=`/img/excursions/${excursion.img}`
