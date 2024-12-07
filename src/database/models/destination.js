@@ -49,9 +49,8 @@ module.exports = (sequelize) => {
     }, 
     {
     sequelize,
-    // modelName: 'Destination',
     tableName: 'destinations',
-    timestamps: 'true',
+    timestamps: true,
     paranoid: true,
     freezeTableName: true, 
   }

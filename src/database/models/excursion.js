@@ -72,8 +72,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     // modelName: 'Excursions',
     tableName: 'excursions',
-    timestamps: 'true',
+    timestamps: true,
     freezeTableName: true, 
+    paranoid: true,
   });
   return Excursion;
 };
