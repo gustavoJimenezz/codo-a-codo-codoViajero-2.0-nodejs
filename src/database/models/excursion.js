@@ -70,7 +70,6 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   {
     sequelize,
-    // modelName: 'Excursions',
     tableName: 'excursions',
     timestamps: true,
     freezeTableName: true, 

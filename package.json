@@ -6,7 +6,7 @@
   "scripts": {
     "db:create": "npx sequelize-cli db:create",
     "db:migrate": "npx sequelize-cli db:migrate",
-    "db:seed":"npx sequelize db:seed:all",
+    "db:seed": "npx sequelize db:seed:all",
     "-ts": "tsc",
     "-tw": "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css",
     "start": "node --watch src/index.js",
@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mysql2": "^3.11.0",
