@@ -39,7 +39,7 @@ controller.register = async (req, res) => {
         await transaction.commit();
 
         res.status(200).json({
-            succes: true,
+            success: true,
             data: {
                 id: usr.id
             },

@@ -84,5 +84,4 @@ document.getElementById('reset').addEventListener('click', async (event)=>{
   selectedValue.value = '0'
   priceTo.value = '0'
   priceFrom.value = '0';
-
 })

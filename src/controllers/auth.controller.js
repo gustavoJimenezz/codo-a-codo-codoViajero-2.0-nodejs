@@ -1,6 +1,7 @@
 const { where } = require('sequelize');
 const models = require('../database/models/index');
 const handleBcrypt = require('../utils/handleBcrypt');
+const generateToken = require('../utils/generateToken');
 const controller = {}
 
 controller.login = async (req, res) => {
@@ -12,7 +13,7 @@ controller.login = async (req, res) => {
         }
     
         const user = await models.User.findOne({
-            where: {email: email}
+            where1: {email: email}
         });
         
         if (!user) {
@@ -35,10 +36,15 @@ controller.login = async (req, res) => {
             });
             return
         }
+        
+        const token = await generateToken.tokenSign(user);
 
         res.status(200).json({
             success:true,
-            user: user
+            data:{
+                user: user,
+            },
+            token: token
         });
         return
         
