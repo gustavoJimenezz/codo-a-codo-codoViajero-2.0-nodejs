@@ -4,6 +4,7 @@ const path = require('path');
 const indexRouter = require('./routes/index.routes');
 const excursionRouter = require('./routes/excursions.routes');
 const userRouter = require('./routes/users.routes');
+const authRouter = require('./routes/auth.routes');
 
 class App {
   constructor(port) {
@@ -35,6 +36,7 @@ class App {
     this.app.use(indexRouter);
     this.app.use(excursionRouter);
     this.app.use(userRouter);
+    this.app.use(authRouter);
   }
 
   start() {

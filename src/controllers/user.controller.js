@@ -49,7 +49,7 @@ controller.register = async (req, res) => {
 
         await transaction.rollback();
         res.status(500).json({
-            succes: false,
+            success: false,
             data: {
                 message: "User was not created", 
                 error: error.message
