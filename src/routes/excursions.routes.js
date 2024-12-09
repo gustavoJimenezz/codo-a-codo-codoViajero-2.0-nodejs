@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/excursion.controlles');
+const controller = require('../controllers/excursion.controller');
 
 router.get('/excursions', controller.index);
 router.get('/excursions/filter', controller.getExcursionsByDestinationFilter);
