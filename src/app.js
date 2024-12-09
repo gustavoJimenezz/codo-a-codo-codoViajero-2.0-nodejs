@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 // require('./database/models/touristDestinations');
-const indexRouters = require('./routes/index.routes');
-const excursionesRouters = require('./routes/excursions.routes');
-
+const indexRouter = require('./routes/index.routes');
+const excursionRouter = require('./routes/excursions.routes');
+const userRouter = require('./routes/users.routes');
 
 class App {
   constructor(port) {
@@ -18,6 +18,7 @@ class App {
 
   setMiddlewares() {
     this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true })); 
   }
 
   setViewEngine() {
@@ -31,8 +32,9 @@ class App {
   }
 
   setRoutes() {
-    this.app.use(indexRouters);
-    this.app.use(excursionesRouters);
+    this.app.use(indexRouter);
+    this.app.use(excursionRouter);
+    this.app.use(userRouter);
   }
 
   start() {

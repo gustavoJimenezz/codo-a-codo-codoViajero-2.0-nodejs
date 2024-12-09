@@ -1,0 +1,8 @@
+valida contra 
+crear registro de usuario
+
+instalar jwt 
+generar token
+validar token
+midleware en controladores
+gention de roles

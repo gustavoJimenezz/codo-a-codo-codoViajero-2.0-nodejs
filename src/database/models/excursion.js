@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
       field: 'deleted_at',
     },
     destination_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       references: {
         model: 'destinations',

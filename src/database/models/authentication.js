@@ -3,32 +3,32 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Authentications extends Model {
+  class Authentication extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Users, {
+      this.belongsTo(models.User, {
         foreignKey: 'usuario_id',
       });
     }
   }
-  Authentications.init(
+  Authentication.init(
     {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER
       },
       password: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
       usuario_id: {
-        type: Sequelize.BIGINT,
+        type: DataTypes.BIGINT,
         allowNull: false,
         references: {
           model: 'users',
@@ -39,14 +39,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.DATE
       },      
       deletedAt: {
-          type: Sequelize.DATE,
+          type: DataTypes.DATE,
           field: 'deleted_at',
         },
     },
@@ -57,5 +57,5 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
     freezeTableName: true, 
   });
-  return authentications;
+  return Authentication;
 };

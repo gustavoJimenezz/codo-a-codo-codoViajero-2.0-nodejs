@@ -1,8 +1,6 @@
 const { where, Op } = require('sequelize');
 const models = require('../database/models/index')
-
 const excursions = require('../database/models/excursion')
-
 const controller = {}
 
 controller.index = async (req, res) => {
