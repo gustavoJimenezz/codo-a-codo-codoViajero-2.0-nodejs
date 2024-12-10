@@ -4,7 +4,7 @@ const handleBcrypt = require('../utils/handleBcrypt');
 const generateToken = require('../utils/generateToken');
 const controller = {}
 
-controller.login = async (req, res) => {
+controller.verifyUser = async (req, res) => {
     try {
         const {email, password} = req.body;
 
@@ -30,23 +30,23 @@ controller.login = async (req, res) => {
         const checkPassword = await handleBcrypt.compare(password, auth.password);
 
         if(!checkPassword){
-            res.status(404).json({
+            return res.status(404).json({
                 success:false,
                 error: "Invalid password",
             });
-            return
+            
         }
         
         const token = await generateToken.tokenSign(user);
 
-        res.status(200).json({
+        return res.status(200).json({
             success:true,
             data:{
                 user: user,
             },
             token: token
         });
-        return
+        
         
     } catch (error) {
         res.status(500).json({
@@ -59,4 +59,7 @@ controller.login = async (req, res) => {
     }
 }
 
+controller.login = async (req, res) => {
+    res.render('login/login')
+}
 module.exports = controller;

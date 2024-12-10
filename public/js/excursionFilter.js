@@ -16,7 +16,8 @@ document.getElementById('applyFilter').addEventListener('click', async (event) =
 
 
     if (!response.ok) {
-      throw new Error('Network response was not okasdsad');
+      throw new Error('Network response was not ok');
+      return;
     }
 
     const excursions = await response.json();
