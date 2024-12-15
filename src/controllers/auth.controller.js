@@ -13,7 +13,7 @@ controller.verifyUser = async (req, res) => {
         }
     
         const user = await models.User.findOne({
-            where1: {email: email}
+            where: {email: email}
         });
         
         if (!user) {
@@ -34,19 +34,24 @@ controller.verifyUser = async (req, res) => {
                 success:false,
                 error: "Invalid password",
             });
-            
         }
         
         const token = await generateToken.tokenSign(user);
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict',
+            maxAge: 60 * 60 * 1000 
+
+        })
 
         return res.status(200).json({
             success:true,
             data:{
                 user: user,
-            },
-            token: token
+            }
         });
-        
         
     } catch (error) {
         res.status(500).json({
@@ -62,4 +67,9 @@ controller.verifyUser = async (req, res) => {
 controller.login = async (req, res) => {
     res.render('login/login')
 }
-module.exports = controller;
+
+controller.singUp = async (req, res) => {
+    res.render('login/signUp')
+}
+
+module.exports = controller; 
