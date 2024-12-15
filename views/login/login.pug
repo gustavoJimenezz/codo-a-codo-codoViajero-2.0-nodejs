@@ -13,20 +13,20 @@ div(class="min-h-screen flex justify-center items-center bg-white")
     div(class="py-8")
       div(width="30" class="-mt-10")
         include ../layouts/partials/logoCodigoViajero.pug
-    input(id='email' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" placeholder="E-Mail or Phone number")
 
+    //- FORGOT
     div(class="flex flex-col space-y-1")
+      input(id='email' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" placeholder="E-Mail or Phone number")
       input(id='password' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" type="password" placeholder="Password")
       p(class="font-bold text-[#0070ba]") Forgot password?
 
     div(class="flex flex-col space-y-5 w-full")
 
-      //- LOGIN
       button(id='btnLogin' class="w-full bg-[#0070ba] rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-[#003087]") Log in
       div(class="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative")
         div(class="-mt-1 font-bod bg-white px-5 absolute") Or
 
-      //- LOGOUT
-      button(id='btnLogout' class="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200") Sign Up
+      //- Sign Up
+      button(id='btnSingUp' class="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200") Sign Up
 
-script(src="/js/login.js")
+script(src="/js/authLogin.js")
