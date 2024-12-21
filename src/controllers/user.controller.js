@@ -6,13 +6,14 @@ const controller = {}
 
 controller.register = async (req, res) => {
     const transaction = await sequelize.transaction();
-    const {name, lastname, email, password} = req.body;
-
-    if(!name || !lastname || !email || !password){
-        return res.status(400).json({error: "One of the fields is not entered"})
-    }
-
     try {
+        const {name, lastName, email, password} = req.body;
+
+        if(!name || !lastName || !email || !password){
+            return res.status(400).json({error: "One of the fields is not entered"})
+        }
+
+    
         const existingUser = await models.User.findOne({where:{email : email}});
         if(existingUser){
             return res.status(400).json({error: "Existing user"})
@@ -20,7 +21,7 @@ controller.register = async (req, res) => {
 
         const usr = await models.User.create({
                 name: name,
-                lastname: lastname,
+                lastname: lastName,
                 email: email,
             },
             {transaction},
@@ -35,16 +36,9 @@ controller.register = async (req, res) => {
             transaction
         })
 
-
         await transaction.commit();
+        res.redirect('/auth/login');
 
-        res.status(200).json({
-            success: true,
-            data: {
-                id: usr.id
-            },
-        })
-        
     } catch (error) {
 
         await transaction.rollback();

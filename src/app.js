@@ -1,5 +1,5 @@
 const express = require('express');
-const cokieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const indexRouter = require('./routes/index.routes');
 const excursionRouter = require('./routes/excursions.routes');
@@ -20,7 +20,7 @@ class App {
   setMiddlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true })); 
-    this.app.use(cokieParser());
+    this.app.use(cookieParser());
   }
 
   setViewEngine() {
