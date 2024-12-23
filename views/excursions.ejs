@@ -1,0 +1,132 @@
+<section class="flex-col items-center py-8 w-full mx-auto bg-nordic-gray-light flex pt-12 bg-cover bg-right md:pt-0" style="max-width:1600px;">
+    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+        <div class="w-full container mx-auto flex items-center mt-0 px-2 py-3">
+            <h3 class="w-full uppercase tracking-wide text-center mt-[15px] mb-[30px] text-[2.5rem] font-light">
+                Elegi tu aventura
+            </h3>
+        </div>
+
+        <div class="flex pag-4">
+            <div class="flex flex-col gap-4 p-4">
+                <!-- Filtros -->
+                <div class="group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2">
+                    <div class="w-80 rounded border border-gray-200 bg-white">
+                        <header class="flex items-center justify-between p-4">
+                            <span class="text-sm text-gray-700">Destinos</span>
+                            <button type="button" id="reset" class="text-sm text-gray-900 underline underline-offset-4">
+                                Reset
+                            </button>
+                        </header>
+
+                        <div class="p-4 border-t border-gray-200">
+                            <select id="idCiudadSelect" name="idCiudadSelect" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+                                <option value="0" hidden>Ciudades</option>
+                                <% destinations.forEach(destination => { %>
+                                    <option class="p-4" value="<%= destination.id %>"><%= destination.name %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 rounded border border-gray-200 bg-white">
+                    <header class="flex items-center justify-between p-4">
+                        <span class="text-sm text-gray-700">El precio mas bajo es de 100</span>
+                    </header>
+
+                    <div class="border-t border-gray-200 p-4">
+                        <div class="flex justify-between gap-4">
+                            <label for="priceFrom" class="flex items-center gap-2">
+                                <span class="text-sm text-gray-600">$</span>
+                                <input type="number" id="priceFrom" placeholder="From" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm" value="0">
+                            </label>
+                            <label for="priceTo" class="flex items-center gap-2">
+                                <span class="text-sm text-gray-600">$</span>
+                                <input type="number" id="priceTo" placeholder="To" class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm" value="0">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <a id="applyFilter" class="inline-flex items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
+                    <span class="text-sm font-medium">Aplicar</span>
+                    <svg class="size-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Excursiones -->
+            <div id="divExcurions" class="grid grid-cols-3 gap-8 flex-auto">
+                <% excursions.forEach(excursion => { %>
+                    <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+                        <img alt="" src="/img/excursions/<%= excursion.img %>" class="h-56 w-full rounded-md object-cover" />
+
+                        <div class="mt-2">
+                            <dl>
+                                <div>
+                                    <dt class="sr-only">Title</dt>
+                                    <dd class="font-medium"><%= excursion.name %></dd>
+                                </div>
+                                <div>
+                                    <dt class="sr-only">Description</dt>
+                                    <dd class="text-sm text-gray-500"><%= excursion.description %></dd>
+                                </div>
+                            </dl>
+
+                            <div class="mt-6 flex items-center gap-8 text-xs">
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="1" x2="12" y2="23" />
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                    <div class="mt-1.5 sm:mt-0">
+                                        <p class="text-gray-500">Price</p>
+                                        <p class="font-medium"><%= excursion.price %></p>
+                                    </div>
+                                </div>
+
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" />
+                                        <path d="M19 6l-7 6V2.5" />
+                                    </svg>
+                                    <div class="mt-1.5 sm:mt-0">
+                                        <p class="text-gray-500">Duration</p>
+                                        <p class="font-medium"><%= excursion.duration %> hs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nuestro Compromiso -->
+    <div class="min-h-80 bg-[#ece5e9] mt-10 w-full">
+        <div class="max-w-[80rem] m-auto grid grid-rows-2 grid-cols-4 place-items-center text-center">
+            <div class="col-span-4">
+                <h4 class="text-2xl font-semibold">Nuestro Compromiso</h4>
+                <p class="text-orange-600 text-xl italic">Esto es lo que nos diferencia y lo que nos hace unicos.</p>
+            </div>
+            <div>
+                <img src="/icons/experiencias-reales.png" alt="Icono estrella" class="max-h-20 object-cover mx-auto" />
+                <p class="text-xl font-semibold pt-4">Experiencias Reales</p>
+            </div>
+            <div>
+                <img src="/icons/reservas-flexibles.png" alt="Icono calendarioo" class="max-h-20 object-cover mx-auto" />
+                <p class="text-xl font-semibold pt-4">Reservas Flexibles</p>
+            </div>
+            <div>
+                <img src="/icons/sin-sobreprecios.png" alt="icono signo peso" class="max-h-20 object-cover mx-auto" />
+                <p class="text-xl font-semibold pt-4">Sin Sobreprecios</p>
+            </div>
+            <div>
+                <img src="/icons/atencion-personalizada.png" alt="Icono de conversación" class="max-h-20 object-cover mx-auto" />
+                <p class="text-xl font-semibold pt-4">Atencion Personalizada</p>
+            </div>
+        </div>
+    </div>
+</section>

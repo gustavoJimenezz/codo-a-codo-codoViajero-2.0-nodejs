@@ -5,6 +5,7 @@ const indexRouter = require('./routes/index.routes');
 const excursionRouter = require('./routes/excursions.routes');
 const userRouter = require('./routes/users.routes');
 const authRouter = require('./routes/auth.routes');
+const expressEjsLayouts = require('express-ejs-layouts');
 
 class App {
   constructor(port) {
@@ -25,7 +26,9 @@ class App {
 
   setViewEngine() {
     this.app.set('views', path.resolve(__dirname, '../views')); 
-    this.app.set('view engine', 'pug');
+    this.app.use(expressEjsLayouts);
+    this.app.set('layout', '../views/layouts/layout.ejs');
+    this.app.set('view engine', 'ejs');
     this.app.locals.basedir = this.app.get('views');
   }
 

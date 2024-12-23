@@ -67,11 +67,12 @@ controller.verifyUser = async (req, res) => {
 }
 
 controller.login = async (req, res) => {
-    res.render('login/login')
+
+    res.render('login/login', {layout : false})
 }
 
 controller.singUp = async (req, res) => {
-    res.render('login/signUp')
+    res.render('login/signUp', {layout : false})
 }
 
 module.exports = controller; 
