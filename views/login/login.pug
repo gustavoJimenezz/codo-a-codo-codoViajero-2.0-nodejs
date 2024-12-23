@@ -14,19 +14,39 @@ div(class="min-h-screen flex justify-center items-center bg-white")
       div(width="30" class="-mt-10")
         include ../layouts/partials/logoCodigoViajero.pug
 
-    //- FORGOT
-    div(class="flex flex-col space-y-1")
-      input(id='email' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" placeholder="E-Mail or Phone number")
-      input(id='password' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" type="password" placeholder="Password")
+    form(action="/auth/verifyUser" method="POST" class="flex flex-col space-y-1")
+
+      input(name='email' values=(values && values.email) || '' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" placeholder="E-Mail or Phone number")
+
+      input(name='password' class="p-3 border-[1px] border-slate-500 rounded-sm w-80" type="password" placeholder="Password")
+
       p(class="font-bold text-[#0070ba]") Forgot password?
+      div(class="flex flex-col space-y-5 w-full")
 
-    div(class="flex flex-col space-y-5 w-full")
+        button(type='submit' class="w-full bg-[#0070ba] rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-[#003087]") Log in
 
-      button(id='btnLogin' class="w-full bg-[#0070ba] rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-[#003087]") Log in
-      div(class="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative")
-        div(class="-mt-1 font-bod bg-white px-5 absolute") Or
+        div(class="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative")
 
-      //- Sign Up
-      button(id='btnSingUp' class="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200") Sign Up
+          div(class="-mt-1 font-bod bg-white px-5 absolute") Or
 
-script(src="/js/authLogin.js")
+        button(type="button" class="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200") 
+          a(href="/auth/singUp")  Sign Up
+
+      
+    if validations  && validations.length > 0
+      each validation in validations 
+        div(role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 w-full")
+            div(class="flex items-center gap-2 text-red-800")
+                svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z")
+                strong(class="block font-medium") #{validation.path} 
+            p(class="mt-2 text-sm text-red-700") #{validation.msg}
+
+      //- div(class="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative")
+
+      //-   div(class="-mt-1 font-bod bg-white px-5 absolute") Or
+
+      //- //- Sign Up
+      //- button(id='btnSingUp' class="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200") 
+      //-   a(href="")  Sign Up
+

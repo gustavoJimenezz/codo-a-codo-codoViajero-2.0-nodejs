@@ -17,10 +17,17 @@ controller.verifyUser = async (req, res) => {
         });
         
         if (!user) {
-            res.status(404).json({
-                success: false, 
-                error: 'User not found' 
-                })
+
+
+            
+            const validations = [
+                {
+                    msg: "Unregistered user",
+                    path: "User",
+                }
+              ]
+
+            return res.render('login/login', {validations: validations});
         }
 
         const auth = await models.Authentication.findOne({
@@ -46,12 +53,7 @@ controller.verifyUser = async (req, res) => {
 
         })
 
-        return res.status(200).json({
-            success:true,
-            data:{
-                user: user,
-            }
-        });
+        return res.redirect("/");
         
     } catch (error) {
         res.status(500).json({

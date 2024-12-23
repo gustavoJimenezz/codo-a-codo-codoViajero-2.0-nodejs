@@ -42,18 +42,41 @@ const validationRegister = [
 
     if(!errors.isEmpty()){
     
-      console.log(errors)
       const values = req.body;
       const validations = errors.array();
-      console.log("ACA");
-      console.log(values);
-      console.log(validations);
       return res.render('login/signUp', {validations: validations, values: values});
     }
     next();
   }
 ];
 
+const validationLogin = [
+  body('email')
+  .isEmail()
+  .withMessage('Invalid email.')
+  .exists(),
+
+  body('password')
+  .isLength({ min: 6 })
+  .withMessage('The password must be at least 6 characters long.')
+  .exists(),
+
+
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+      const values = req.body;
+      const validations = errors.array();
+
+      console.log(validations);
+      return res.render('login/login', {validations: validations, values: values})
+    }
+    next();
+  }
+
+];
+
 module.exports = {
-  validationRegister
+  validationRegister, 
+  validationLogin
 };
