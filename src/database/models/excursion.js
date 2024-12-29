@@ -31,15 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    duration: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      comment: 'Duración en horas o días',
-    },
-    price: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
     img: {
       type: DataTypes.STRING,
       allowNull: true,

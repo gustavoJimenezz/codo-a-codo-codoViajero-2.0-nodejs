@@ -20,7 +20,7 @@ module.exports = {
       duration: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        comment: 'Duración en horas o días',
+        comment: 'Duration for hours or days',
       },
       price: {
         type: Sequelize.FLOAT,
@@ -29,7 +29,7 @@ module.exports = {
       img: {
         type: Sequelize.STRING,
         allowNull: true,
-        comment: 'URL de la imagen de la excursión',
+        comment: 'Image name',
       },
       createdAt: {
         allowNull: false,
