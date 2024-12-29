@@ -56,21 +56,21 @@
   <body class="flex-col items-center">
     <header>
       <!-- Include navigation -->
-      <%- include ('partials/nav') %>
-      <!-- Include header -->
-      <%- include ('partials/header') %>
+      <%- include ('./layouts/partials/nav') %>
     </header>
 
     <main>
-        <%- body %>
+        <body class="flex flex-col">
+            
+            
+        </body>
     </main>
     
-    <script src="/js/excursionFilter.js"></script>
 </body>
 
 <footer class="h-60 w-full">
   <!-- Include footer -->
-  <%- include ('partials/footer') %>
+  <%- include ('./layouts/partials/footer') %>
 </footer>
 
 </html>

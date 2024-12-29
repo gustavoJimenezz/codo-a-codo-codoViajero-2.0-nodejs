@@ -16,7 +16,7 @@ controller.index = async (req, res) => {
 
         res.render('excursions', {
             destinations : destinations,
-            excursions : allExcursions,
+            allExcursions : allExcursions,
             title : title, 
             subtitle : subtitle, 
             bgImage : bgImage, 
@@ -95,7 +95,9 @@ controller.getExcursionsById = async (req, res) =>{
             where : {id : excursionId}
         })
 
-        res.render('showExcursion', {
+
+        res.render('detailsExcursion', {
+            layout: false,
             excursion : excursion
         })
     } catch (e) {
