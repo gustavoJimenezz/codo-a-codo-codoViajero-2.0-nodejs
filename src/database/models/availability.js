@@ -3,71 +3,52 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class DetailsExcursions extends Model {
+  class Availability extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Excursion, {
-        foreignKey: 'id',
-      });
+      // define association here
     }
   }
-  DetailsExcursions.init({
-    
+  Availability.init({
     id: {
       type: DataTypes.BIGINT,
+      allowNull: false,
       autoIncrement: true,
       primaryKey: true,
     },
-    excursion_id: {
+    operator_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
-        model: 'excursions',
+        model: 'user',
         key: 'id',
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     },
-    excursionImages_id: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-        model: 'excursionImages',
-        key: 'id',
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-    },
-    availabilityes_id: {
-      type: DataTypes.BIGINT,
+    date:{
+      type: DataTypes.DATE,
       allowNull: true,
-      references: {
-        model: 'availabilities',
-        key: 'id',
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+    },
+    start_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
     },
     duration: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      comment: 'Duration for hours or days',
-    },
-    price: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: DataTypes.DATE
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: DataTypes.DATE
     },
     deletedAt: {
       type: DataTypes.DATE,
@@ -75,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'detailsExcursions',
+    modelName: 'availability',
   });
-  return DetailsExcursions;
+  return availability;
 };
