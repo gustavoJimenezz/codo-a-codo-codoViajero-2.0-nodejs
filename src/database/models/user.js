@@ -33,6 +33,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING
     },
+    role_id:{
+      type: Sequelize.BIGINT,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE
