@@ -44,7 +44,7 @@ const validationRegister = [
     
       const values = req.body;
       const validations = errors.array();
-      return res.render('login/signUp', {validations: validations, values: values});
+      return res.render('login/signUp', {validations: validations, values: values, layout: false});
     }
     next();
   }

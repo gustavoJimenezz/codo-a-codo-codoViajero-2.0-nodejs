@@ -5,7 +5,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.addColumn('excursionImages', 'excursionImages_id', {
       type: Sequelize.BIGINT,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'excursionImages',
         key: 'id',

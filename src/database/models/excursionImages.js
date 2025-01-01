@@ -52,5 +52,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'excursionImages',
   });
-  return ImageCatalog;
+  return ExcursionImages;
 };

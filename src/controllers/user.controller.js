@@ -1,12 +1,17 @@
 const { where, Transaction } = require('sequelize');
 const models = require('../database/models/index');
 const handleBcrypt = require('../utils/handleBcrypt');
+const roles = require('../enums/Roles');
 const sequelize = models.sequelize;
 const controller = {}
 
-controller.register = async (req, res) => {
-    const transaction = await sequelize.transaction();
+// const register = async () => {
+    
+// }
+
+controller.registerUser = async (req, res) => {
     try {
+        const transaction = await sequelize.transaction();
         const {name, lastName, email, password} = req.body;
 
         if(!name || !lastName || !email || !password){
@@ -19,7 +24,10 @@ controller.register = async (req, res) => {
             return res.status(400).json({error: "Existing user"})
         }
 
+        role_id_user = await models.User.findOne({where: {name : "User"}})
+
         const usr = await models.User.create({
+                role_id: role_id_user,    
                 name: name,
                 lastname: lastName,
                 email: email,

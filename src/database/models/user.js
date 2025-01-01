@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -21,6 +22,16 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
+    role_id: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
+      references: {
+        model: 'roles',
+        key: 'id',
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL',
+    },
     name: {
       allowNull: false,
       type: DataTypes.STRING
@@ -34,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     role_id:{
-      type: Sequelize.BIGINT,
+      type: DataTypes.BIGINT,
     },
     createdAt: {
       allowNull: false,
