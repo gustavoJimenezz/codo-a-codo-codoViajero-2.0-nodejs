@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.Router();
 const controller = require('../controllers/availability.controller');
+const router = express.Router();
 
 router.post('/excursions/availability', controller.registerAvailability);
 

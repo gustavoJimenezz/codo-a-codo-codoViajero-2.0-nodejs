@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
+
   Availability.init({
     id: {
       type: DataTypes.BIGINT,
@@ -64,9 +65,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       field: 'deleted_at',
     },
-  }, {
+  },
+  {
     sequelize,
-    modelName: 'availability',
-  });
+    tableName: 'availabilities',
+    timestamps: true,
+    freezeTableName: true, 
+    paranoid: true,
+  }
+);
   return Availability;
 };

@@ -63,9 +63,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       field: 'deleted_at',
     },
-  }, {
+  }, 
+
+  {
     sequelize,
-    modelName: 'detailsExcursions',
+    tableName: 'detailsExcursions',
+    timestamps: true,
+    freezeTableName: true, 
+    paranoid: true,
   });
   return DetailsExcursions;
 };
