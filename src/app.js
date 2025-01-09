@@ -5,6 +5,7 @@ const indexRouter = require('./routes/index.routes');
 const excursionRouter = require('./routes/excursions.routes');
 const userRouter = require('./routes/users.routes');
 const authRouter = require('./routes/auth.routes');
+const detailsExcursions = require('./routes/detailsExcursions.routes');
 const expressEjsLayouts = require('express-ejs-layouts');
 
 class App {
@@ -41,6 +42,8 @@ class App {
     this.app.use(excursionRouter);
     this.app.use(userRouter);
     this.app.use(authRouter);
+    this.app.use(detailsExcursions);
+    
   }
 
   start() {

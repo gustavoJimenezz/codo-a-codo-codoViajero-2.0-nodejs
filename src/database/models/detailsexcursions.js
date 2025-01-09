@@ -34,19 +34,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     excursionImages_id: {
       type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-        model: 'excursionImages',
-        key: 'id',
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-    },
-    availabilityes_id: {
-      type: DataTypes.BIGINT,
       allowNull: true,
       references: {
-        model: 'availabilities',
+        model: 'excursionImages',
         key: 'id',
       },
       onUpdate: 'CASCADE',

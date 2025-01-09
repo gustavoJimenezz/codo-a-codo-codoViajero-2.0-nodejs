@@ -30,6 +30,16 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     },
+    excursion_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      references: {
+        model: 'excursions',
+        key: 'id',
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    },
     date:{
       type: DataTypes.DATE,
       allowNull: true,

@@ -1,22 +1,27 @@
 'use strict';
 
+const { sequelize } = require('../models');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.addColumn('detailsExcursions', 'availabilityes_id',{
+    
+    await queryInterface.addColumn('availabilities', 'excursion_id', { 
+      
       type: Sequelize.BIGINT,
-      allowNull: true,
+      allowNull: false,
       references: {
-        model: 'availabilities',
+        model: 'excursions',
         key: 'id',
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
-    }
-    )
+    });
+    
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.removeColumn('detailsExcursions', 'availabilityes_id')
+    await queryInterface.removeColumn('availabilities', 'excursion_id');
+    
   }
 };
