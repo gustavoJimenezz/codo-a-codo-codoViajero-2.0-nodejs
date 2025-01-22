@@ -14,6 +14,16 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Destination, {
           foreignKey: 'destination_id',
         });
+    
+      this.hasOne(models.DetailsExcursions, {
+        foreignKey: 'excursion_id',
+        as: 'detailsExcursion'
+      });
+
+      this.hasOne(models.Availability, {
+        foreignKey: 'excursion_id',
+        as: 'availability'
+      });
     }
   }
   Excursion.init({

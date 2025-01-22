@@ -92,10 +92,19 @@ controller.getExcursionsById = async (req, res) =>{
         const excursionId = parseInt(req.params.excursionId); 
 
         const excursion = await models.Excursion.findOne({
-            where : {id : excursionId}
+            where : {id : excursionId},
+            include: [
+              {
+                model: models.DetailsExcursions,
+                as: "detailsExcursion"
+              }
+            ]
+          });
+        
+        const availability =  await models.Availability.findAll({
+            where: {excursion_id : excursion.id}
         })
-
-
+        
         res.render('detailsExcursion', {
             layout: false,
             excursion : excursion
