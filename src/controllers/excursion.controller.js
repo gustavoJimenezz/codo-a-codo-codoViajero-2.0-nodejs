@@ -105,13 +105,12 @@ controller.getExcursionsById = async (req, res) =>{
             where: {excursion_id : excursion.id}
         }) 
 
+        const operator = await models.User.findOne
+
         const availability =  await models.Availability.findAll({
             where: {excursion_id : excursion.id}
         })
 
-        console.log("hola");
-        console.log(excursion.id);
-        console.log(imagesExcursions);
         
         res.render('detailsExcursion', {
             layout: false,

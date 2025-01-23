@@ -1,143 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
-    <!-- <link rel="stylesheet" href="/public/css/styles.css"> -->
-    <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    <style>
-      .work-sans {
-        font-family: 'Work Sans', sans-serif;
-      }
-      #menu-toggle:checked + #menu {
-        display: block;
-      }
-      .hover\:grow {
-        transition: all 0.3s;
-        transform: scale(1);
-      }
-      .hover\:grow:hover {
-        transform: scale(1.02);
-      }
-      .carousel-open:checked + .carousel-item {
-        position: static;
-        opacity: 100;
-      }
-      .carousel-item {
-        -webkit-transition: opacity 0.6s ease-out;
-        transition: opacity 0.6s ease-out;
-      }
-      #carousel-1:checked ~ .control-1,
-      #carousel-2:checked ~ .control-2,
-      #carousel-3:checked ~ .control-3 {
-        display: block;
-      }
-      .carousel-indicators {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        bottom: 2%;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 10;
-      }
-      #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-      #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-      #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-        color: #000;
-      }
-    </style>
-  </head>
 
-  <body class="flex-col items-center">
-    <header>
-      <%- include ('./layouts/partials/nav') %>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
+  <!-- <link rel="stylesheet" href="/public/css/styles.css"> -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+  <style>
+    .work-sans {
+      font-family: 'Work Sans', sans-serif;
+    }
 
-    <main>
+    #menu-toggle:checked+#menu {
+      display: block;
+    }
 
-          <h1><%= excursion.name %></h1>
-          <p><%= excursion.description %></p>
-          <p><%= excursion.img %></p>
-          <p><%= excursion.name %></p>
-          <hr>
-          <p><%= excursion.detailsExcursion.id %></p>
-          <p><%= excursion.detailsExcursion.description %></p>
-          <p><%= excursion.detailsExcursion.price %></p>
-          <p><%= excursion.detailsExcursion.duration %></p>
+    .hover\:grow {
+      transition: all 0.3s;
+      transform: scale(1);
+    }
 
+    .hover\:grow:hover {
+      transform: scale(1.02);
+    }
 
-          <div id="excursion-carousel" class="relative w-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
-            <div class="relative h-64 overflow-hidden rounded-lg md:h-96">
-              <% imagesExcursions.forEach((image, index) => { %>
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="<%= index === 0 ? 'active' : '' %>">
-                  <img src="/img/excursions/excursion-cordoba-1/<%= image.img %>" 
-                       class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" 
-                       alt="Excursion Image <%= index + 1 %>">
-                </div>
-              <% }); %>
+    .carousel-open:checked+.carousel-item {
+      position: static;
+      opacity: 100;
+    }
+
+    .carousel-item {
+      -webkit-transition: opacity 0.6s ease-out;
+      transition: opacity 0.6s ease-out;
+    }
+
+    #carousel-1:checked~.control-1,
+    #carousel-2:checked~.control-2,
+    #carousel-3:checked~.control-3 {
+      display: block;
+    }
+
+    .carousel-indicators {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: 2%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 10;
+    }
+
+    #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+      color: #000;
+    }
+  </style>
+</head>
+
+<body class="flex-col items-center">
+  <header>
+    <%- include ('./layouts/partials/nav2') %>
+  </header>
+
+  <main>
+    <div class="flex flex-col mx-auto max-w-screen-xl gap-10 p-10">
+      <div class="flex flex-row gap-10">
+        <div>
+          <div class="">
+            <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
+              <%= excursion.name %>
+            </h2>
+
+            <p class="mt-4 text-gray-700">
+              <%= excursion.detailsExcursion.description %>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center ">
+          <p>
+            <strong class="text-6xl font-bold text-orange-600"><%= excursion.detailsExcursion.price %>$</strong>
+          </p>
+        </div>
+             
+      </div>
+
+      <div id="excursion-carousel" class="relative w-full " data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-64 overflow-hidden rounded-lg md:h-96">
+          <% imagesExcursions.forEach((image, index)=> { %>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item="<%= index === 0 ? 'active' : '' %>">
+              <img src="/img/excursions/excursion-cordoba-1/<%= image.img %>"
+                class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="Excursion Image <%= index + 1 %>">
             </div>
-          
-            <!-- Carousel controls -->
-            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" 
-                    data-carousel-prev>
-              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-              </span>
-            </button>
-            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" 
-                    data-carousel-next>
-              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-          
+            <% }); %>
+        </div>
+  
+        <!-- Carousel controls -->
+        <button type="button"
+          class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev>
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </span>
+        </button>
+        <button type="button"
+          class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next>
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
 
-          <div class="flow-root">
-            <dl class="-my-3 divide-y divide-gray-100 text-sm">
-              <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Title</dt>
-                <dd class="text-gray-700 sm:col-span-2">Mr</dd>
-              </div>
-          
-              <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">price</dt>
-                <dd class="text-gray-700 sm:col-span-2"><%= excursion.detailsExcursion.price %></dd>
-              </div>
-          
-              <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">duration</dt>
-                <dd class="text-gray-700 sm:col-span-2"><%= excursion.detailsExcursion.duration %></dd>
-              </div>
-          
-              <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">description</dt>
-                <dd class="text-gray-700 sm:col-span-2"><%= excursion.detailsExcursion.description %></dd>
-              </div>
-          
-              <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">operator</dt>
-                <dd class="text-gray-700 sm:col-span-2">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo
-                  doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam
-                  aspernatur neque molestiae labore aliquam soluta architecto?
-                </dd>
-              </div>
-            </dl>
+      <div class="flow-root">
+        <dl class="-my-3 divide-y divide-gray-100 text-sm">
+  
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">price</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <%= excursion.detailsExcursion.price %>
+            </dd>
           </div>
+  
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">duration</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <%= excursion.detailsExcursion.duration %>
+            </dd>
+          </div>
+  
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">description</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <%= excursion.detailsExcursion.description %>
+            </dd>
+          </div>
+  
+        </dl>
+      </div>
+    </div>
 
-    </main>
-    
+
+
+
+
+
+  </main>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 
