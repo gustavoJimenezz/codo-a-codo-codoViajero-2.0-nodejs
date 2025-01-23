@@ -49,8 +49,13 @@ module.exports = (sequelize, DataTypes) => {
       field: 'deleted_at',
     },
   }, {
+
     sequelize,
-    modelName: 'excursionImages',
+    tableName: 'excursionImages',
+    timestamps: true,
+    freezeTableName: true, 
+    paranoid: true,
+
   });
   return ExcursionImages;
 };

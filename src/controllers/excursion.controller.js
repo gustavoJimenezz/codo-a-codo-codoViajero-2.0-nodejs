@@ -101,13 +101,22 @@ controller.getExcursionsById = async (req, res) =>{
             ]
           });
         
+        const imagesExcursions = await models.ExcursionImages.findAll({
+            where: {excursion_id : excursion.id}
+        }) 
+
         const availability =  await models.Availability.findAll({
             where: {excursion_id : excursion.id}
         })
+
+        console.log("hola");
+        console.log(excursion.id);
+        console.log(imagesExcursions);
         
         res.render('detailsExcursion', {
             layout: false,
-            excursion : excursion
+            excursion : excursion,
+            imagesExcursions: imagesExcursions
         })
     } catch (e) {
         res.status(500).json({ error: 'Error : ' , message: e.message});
