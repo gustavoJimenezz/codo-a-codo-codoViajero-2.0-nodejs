@@ -18,7 +18,7 @@
           <%- include('../layouts/partials/logoCodigoViajero.ejs') %>
         </div>
 
-        <form action="/user/user" method="POST" class="flex flex-col space-y-1 gap-2 w-full max-w-80">
+        <form action="/user" method="POST" class="flex flex-col space-y-1 gap-2 w-full max-w-80">
 
           <input
             value="<%= (typeof values !== 'undefined' && values.name) ? values.name : '' %>"

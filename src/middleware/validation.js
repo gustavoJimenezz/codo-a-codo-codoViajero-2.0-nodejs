@@ -29,13 +29,10 @@ const validationRegister = [
     .exists(),
 
   body('confirmPassword')
-  .notEmpty().withMessage('Confirmation password is required.')
-  .custom((value, { req }) => {
-    if (value !== req.body.password) {
-      throw new Error('Passwords do not match.');
-    }
-    return true;
-  }),
+    .notEmpty().withMessage('Confirmation password is required.')
+    .bail()
+    .custom((value, { req }) => value === req.body.password)
+    .withMessage('Passwords do not match.'),
 
   (req, res, next) => {
     const errors = validationResult(req);
