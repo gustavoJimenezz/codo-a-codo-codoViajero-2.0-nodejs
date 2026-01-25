@@ -10,7 +10,7 @@
     "-ts": "tsc",
     "-tw": "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css",
     "start": "node --watch src/index.js",
-    "start:dev": "concurrently \"npm run -tw\" \"npm start\""
+    "start:dev": "concurrently \"npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css --watch\" \"npm start\""
   },
   "keywords": [],
   "author": "",

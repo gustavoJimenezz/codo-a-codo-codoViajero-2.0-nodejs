@@ -49,7 +49,7 @@
 │   │   ├── detailsExcursions.controller.js
 │   │   ├── availability.controller.js
 │   │   ├── index.controllers.js
-│   │   └── TouristDestinationController.js
+│   │   └── touristDestinationController.js
 │   ├── routes/                     # Definición de rutas
 │   │   ├── auth.routes.js
 │   │   ├── users.routes.js

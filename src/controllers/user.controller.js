@@ -62,15 +62,4 @@ controller.registerUser = async (req, res) => {
     }
 }
 
-controller.registerOperator = async (req, res) => {
-    const { name, lastName, email, password} = req.body;
-
-    const result = await register(name, lastName, email, password, roles.Roles.OPERATOR);
-    if (result.success) {
-        res.redirect('/auth/login');
-    } else {
-        res.status(400).json({ msg: result.message });
-    }
-}
-
 module.exports =  controller;

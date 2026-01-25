@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const touristDestinationController = require('../controller/TouristDestinationController');
+const touristDestinationController = require('../controller/touristDestinationController');
 
 router.get('/:id', touristDestinationController.GetTouristDestinationByID);
 router.post('/', touristDestinationController.AddNewTouristDestination);
