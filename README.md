@@ -14,7 +14,7 @@ npm install
 
 ## Configurar .env con los datos de tu base de datos.
 **Crear base de datos**
-npm run db:create 
+npm run db:create
 
 **Ejecutar migraciones**
 npm run db:migrate 
