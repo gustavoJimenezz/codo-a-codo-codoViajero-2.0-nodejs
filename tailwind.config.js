@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./views/**/*.ejs"],
+  safelist: [
+    'lg:row-span-2',
+    'lg:col-span-2',
+    'lg:col-span-3',
+  ],
   theme: {
     extend: {
       colors: {

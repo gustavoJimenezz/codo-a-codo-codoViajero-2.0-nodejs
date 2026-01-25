@@ -14,10 +14,41 @@
 
     <!-- Destinations Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <%
+        const total = allDestinations.length;
+        // Calcula col-span para el último elemento según su posición en el grid
+        function getColSpan(lastIndex) {
+          if (lastIndex === 0) return 1;
+          let col;
+          if (lastIndex <= 4) {
+            col = (lastIndex % 2 === 1) ? 2 : 3;
+          } else {
+            col = ((lastIndex - 5) % 3) + 1;
+          }
+          return 4 - col;
+        }
+        const lastColSpan = getColSpan(total - 1);
+      %>
       <% allDestinations.forEach(function(destination, index) { %>
+      <%
+        const isFirst = index === 0;
+        const isLast = index === total - 1;
+
+        let gridClasses = '';
+        if (isFirst) {
+          // Primer elemento: row-span-2
+          gridClasses = 'lg:row-span-2 min-h-[400px] lg:min-h-[500px]';
+        } else if (isLast) {
+          // Último elemento: col-span dinámico + row-span-2
+          let colSpanClass = lastColSpan === 3 ? 'lg:col-span-3' : (lastColSpan === 2 ? 'lg:col-span-2' : '');
+          gridClasses = colSpanClass + ' lg:row-span-2 min-h-[400px] lg:min-h-[500px]';
+        } else {
+          gridClasses = 'min-h-[250px]';
+        }
+      %>
       <a
         href="/excursions/destination/<%= destination.id %>"
-        class="destination-card <%= index === 0 || index === 5 ? 'md:row-span-2 min-h-[400px] md:min-h-[500px]' : 'min-h-[250px]' %>"
+        class="destination-card <%= gridClasses %>"
       >
         <img
           src="/img/touristDestinations/<%= destination.img %>"
