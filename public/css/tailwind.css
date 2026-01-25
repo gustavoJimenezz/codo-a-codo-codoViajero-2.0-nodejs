@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-display antialiased;
+  }
+}
+
+@layer components {
+  /* Card de destino con efecto hover */
+  .destination-card {
+    @apply relative overflow-hidden rounded-2xl bg-black transition-all duration-500;
+  }
+
+  .destination-card img {
+    @apply absolute inset-0 h-full w-full object-cover transition-all duration-500;
+  }
+
+  .destination-card:hover img {
+    @apply scale-110 opacity-60;
+  }
+
+  .destination-card .card-content {
+    @apply relative z-10 flex h-full flex-col justify-end p-6;
+  }
+
+  .destination-card .card-description {
+    @apply max-h-0 overflow-hidden opacity-0 transition-all duration-500;
+  }
+
+  .destination-card:hover .card-description {
+    @apply max-h-40 opacity-100;
+  }
+
+  /* Card de excursión */
+  .excursion-card {
+    @apply relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+
+  .excursion-card .card-image {
+    @apply h-48 w-full object-cover;
+  }
+
+  .excursion-card .card-body {
+    @apply p-5;
+  }
+
+  /* Botones */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-orange px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-brand-orange-dark hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-white px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-codo-blue;
+  }
+
+  /* Sección título */
+  .section-title {
+    @apply text-3xl font-bold text-codo-blue md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-2 text-lg text-gray-600;
+  }
+}
