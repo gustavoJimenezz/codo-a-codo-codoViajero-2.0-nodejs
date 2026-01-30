@@ -1,5 +1,20 @@
 const { verifyToken } = require('../helpers/generateToken');
 
+const setUserLocals = async (req, res, next) => {
+    const token = req.cookies?.token;
+    if (token) {
+        try {
+            const decoded = await verifyToken(token);
+            res.locals.user = decoded;
+        } catch {
+            res.locals.user = null;
+        }
+    } else {
+        res.locals.user = null;
+    }
+    next();
+};
+
 const checkAuth = async (req, res, next) => {
     try {
         // Obtener el token de las cookies
@@ -24,4 +39,4 @@ const checkAuth = async (req, res, next) => {
     }
 };
 
-module.exports = checkAuth;
+module.exports = { checkAuth, setUserLocals };

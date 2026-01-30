@@ -8,6 +8,8 @@ const authRouter = require('./routes/auth.routes');
 const detailsExcursions = require('./routes/detailsExcursions.routes');
 const availability = require('./routes/availability.routes');
 const expressEjsLayouts = require('express-ejs-layouts');
+const passport = require('./config/passport');
+const { setUserLocals } = require('./middleware/auth');
 
 class App {
   constructor(port) {
@@ -22,8 +24,10 @@ class App {
 
   setMiddlewares() {
     this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: true })); 
+    this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
+    this.app.use(passport.initialize());
+    this.app.use(setUserLocals);
   }
 
   setViewEngine() {

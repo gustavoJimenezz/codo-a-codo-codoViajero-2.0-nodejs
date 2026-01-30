@@ -75,4 +75,21 @@ controller.singUp = async (req, res) => {
     res.render('login/signUp', {layout : false})
 }
 
+controller.googleCallback = async (req, res) => {
+    try {
+        const token = await generateToken.tokenSign(req.user);
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict',
+            maxAge: 60 * 60 * 1000
+        });
+
+        return res.redirect('/');
+    } catch (error) {
+        return res.redirect('/');
+    }
+};
+
 module.exports = controller; 
