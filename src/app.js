@@ -8,7 +8,7 @@ const authRouter = require('./routes/auth.routes');
 const detailsExcursions = require('./routes/detailsExcursions.routes');
 const availability = require('./routes/availability.routes');
 const expressEjsLayouts = require('express-ejs-layouts');
-const passport = require('./config/passport');
+const passport = require('./middleware/passport');
 const { injectUserContext } = require('./middleware/auth');
 
 class App {
