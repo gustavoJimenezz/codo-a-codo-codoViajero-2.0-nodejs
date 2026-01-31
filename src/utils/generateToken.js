@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken')
 
 const tokenSign = async (user) => {
-    console.log("User name :", user.name);
     return jwt.sign(
         {
             id: user.id,
+            googleId: user.googleId || null,
             name: user.name,
             email: user.email,
             role_id: user.role_id || "",

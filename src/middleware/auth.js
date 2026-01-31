@@ -10,7 +10,6 @@ const injectUserContext = async (req, res, next) => {
 
     try {
         const decoded = await verifyToken(token);
-        console.log("Decoded JWT:", decoded);
         if (decoded) {
             res.locals.user = decoded;
             req.user = decoded;

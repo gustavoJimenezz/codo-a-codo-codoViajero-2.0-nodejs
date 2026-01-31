@@ -1,0 +1,12 @@
+eporte Técnico: Fallo de Persistencia de JWT en Cookies1. El Problema: Bloqueo por Protocolo InseguroCuando configuramos una cookie con el atributo secure: true, le estamos indicando al navegador que esa cookie solo puede ser enviada y almacenada si la conexión es cifrada vía HTTPS.En Localhost (HTTP): El servidor envía la cookie en el encabezado Set-Cookie, pero el navegador la descarta inmediatamente porque la conexión no es segura.Resultado: El token nunca se guarda en el almacenamiento del navegador, el middleware de autenticación no encuentra la cookie en las siguientes peticiones y res.locals.user permanece como null.2. Atributos Críticos de la CookiePara que una autenticación stateless funcione, estos tres atributos deben estar correctamente configurados:AtributoPropósitoConfiguración CorrectahttpOnlyEvita que JavaScript acceda a la cookie (previene XSS).Siempre true.secureObliga al uso de HTTPS.true en Producción / false en Local.sameSiteControla si la cookie se envía en redirecciones externas (como Google OAuth).lax o none (si es none, secure DEBE ser true).3. La Solución: Configuración DinámicaLa solución profesional es detectar el entorno en el que se está ejecutando la aplicación para ajustar las restricciones de seguridad automáticamente.Paso A: Ajuste en el ControladorModifica tu googleCallback para que sea flexible:JavaScriptconst isProduction = process.env.NODE_ENV === 'production';
+
+res.cookie('token', token, {
+    httpOnly: true, // Seguridad contra XSS
+    secure: isProduction, // Si es falso (local), el navegador la aceptará por HTTP
+    sameSite: isProduction ? 'strict' : 'lax', // Permite que la cookie persista tras el redirect de Google
+    maxAge: 60 * 60 * 1000 // 1 hora
+});
+Paso B: El Middleware de LecturaAsegúrate de que el middleware esté posicionado después de cookie-parser y antes de tus rutas:JavaScriptapp.use(cookieParser());
+app.use(injectUserContext); // Tu middleware que llena res.locals.user
+app.use('/', routes);
+4. Resumen del Flujo CorregidoCallback: Genera el token y lo envía. Si es local, secure: false permite que el navegador lo guarde.Redirección: El navegador ahora sí tiene el token en su memoria.Nueva Petición (/): El navegador adjunta la cookie automáticamente.Middleware: Detecta la cookie, la decodifica y llena res.locals.user.EJS: Al renderizar el Nav, la variable user existe y muestra los datos.
