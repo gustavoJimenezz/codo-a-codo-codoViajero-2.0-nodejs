@@ -1,16 +1,16 @@
 const jwt = require('jsonwebtoken')
 
 const tokenSign = async (user) => {
+    console.log("User name :", user.name);
     return jwt.sign(
         {
-            //TODO: Payload 
             id: user.id,
-            name: user.name
-            // role: user.role
+            name: user.name,
+            email: user.email,
+            role_id: user.role_id || "",
         }, 
 
         process.env.JWT_SECRET,
-
         {
             expiresIn: "2h", 
         }
@@ -25,7 +25,7 @@ const verifyToken = async (token) => {
     }
 }
 
-const decodeSign = (token) => { //TODO: Verificar que el token sea valido y correcto
+const decodeSign = (token) => {
     return jwt.decode(token, null)
 }
 

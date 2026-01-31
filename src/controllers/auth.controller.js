@@ -7,6 +7,7 @@ const controller = {}
 controller.verifyUser = async (req, res) => {
     try {
         const {email, password} = req.body;
+        console.log("EmailAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
         if(!email || !password){
             return res.status(400).json({error: "One of the fields is not entered"})
@@ -16,17 +17,13 @@ controller.verifyUser = async (req, res) => {
             where: {email: email}
         });
         
-        if (!user) {
-
-
-            
+        if (!user) {            
             const validations = [
                 {
                     msg: "Unregistered user",
                     path: "User",
                 }
               ]
-
             return res.render('login/login', {validations: validations});
         }
 
@@ -81,8 +78,8 @@ controller.googleCallback = async (req, res) => {
 
         res.cookie('token', token, {
             httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
+            secure: false,
+            sameSite: 'lax',
             maxAge: 60 * 60 * 1000
         });
 
@@ -90,6 +87,11 @@ controller.googleCallback = async (req, res) => {
     } catch (error) {
         return res.redirect('/');
     }
+};
+
+controller.logout = (req, res) => {
+    res.clearCookie('token');
+    return res.redirect('/');
 };
 
 module.exports = controller; 

@@ -1,16 +1,23 @@
-const { verifyToken } = require('../helpers/generateToken');
+const { verifyToken } = require('../utils/generateToken');
 
-const setUserLocals = async (req, res, next) => {
+const injectUserContext = async (req, res, next) => {
     const token = req.cookies?.token;
-    if (token) {
-        try {
-            const decoded = await verifyToken(token);
+
+    res.locals.user = null;
+    req.user = null;
+
+    if (!token) {return next();}
+
+    try {
+        const decoded = await verifyToken(token);
+        console.log("Decoded JWT:", decoded);
+        if (decoded) {
             res.locals.user = decoded;
-        } catch {
-            res.locals.user = null;
+            req.user = decoded;
         }
-    } else {
-        res.locals.user = null;
+    } catch (error) {
+        res.clearCookie('token');
+        console.error("JWT Verification Error:", error.message);
     }
     next();
 };
@@ -39,4 +46,4 @@ const checkAuth = async (req, res, next) => {
     }
 };
 
-module.exports = { checkAuth, setUserLocals };
+module.exports = { checkAuth, injectUserContext };

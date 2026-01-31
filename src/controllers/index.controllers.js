@@ -2,6 +2,7 @@ const models = require('../database/models/index')
 const controller = {}
 controller.index = async (req, res) => {
         try {
+            console.log("ACAAAAAAAAAAA!r:", res.locals.user);
             const TouristDestination = await models.Destination.findAll();
             const excursions = await models.Excursion.findAll();
             const title = "Visitas guiadas y excursiones";
