@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.Excursion, {
-        foreignKey: 'id',
+        foreignKey: 'excursion_id',
       });
     }
   }

@@ -64,11 +64,16 @@
 
 <body class="flex-col items-center">
   <header>
-    <%- include ('./layouts/partials/nav2') %>
+    <%- include ('./layouts/partials/nav') %>
   </header>
 
   <main>
     <div class="flex flex-col mx-auto max-w-screen-xl gap-10 p-10">
+      <% if (!hasDetails) { %>
+      <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 border border-yellow-300" role="alert">
+        <span class="font-medium">Atención:</span> No se encontraron detalles para esta excursión. Algunos datos pueden no estar disponibles.
+      </div>
+      <% } %>
       <div class="flex flex-row gap-10">
         <div>
           <div class="">
@@ -77,14 +82,14 @@
             </h2>
 
             <p class="mt-4 text-gray-700">
-              <%= excursion.detailsExcursion.description %>
+              <%= excursion.detailsExcursion ? excursion.detailsExcursion.description : excursion.description %>
             </p>
           </div>
         </div>
 
         <div class="flex items-center justify-center ">
           <p>
-            <strong class="text-6xl font-bold text-orange-600"><%= excursion.detailsExcursion.price %>$</strong>
+            <strong class="text-6xl font-bold text-orange-600"><%= excursion.detailsExcursion ? excursion.detailsExcursion.price : 'N/A' %>$</strong>
           </p>
         </div>
              
@@ -129,23 +134,23 @@
         <dl class="-my-3 divide-y divide-gray-100 text-sm">
   
           <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-            <dt class="font-medium text-gray-900">price</dt>
+            <dt class="font-medium text-gray-900">Precio</dt>
             <dd class="text-gray-700 sm:col-span-2">
-              <%= excursion.detailsExcursion.price %>
+              <%= excursion.detailsExcursion ? excursion.detailsExcursion.price : 'No disponible' %>
             </dd>
           </div>
-  
+
           <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-            <dt class="font-medium text-gray-900">duration</dt>
+            <dt class="font-medium text-gray-900">Duración</dt>
             <dd class="text-gray-700 sm:col-span-2">
-              <%= excursion.detailsExcursion.duration %>
+              <%= excursion.detailsExcursion ? excursion.detailsExcursion.duration : 'No disponible' %>
             </dd>
           </div>
-  
+
           <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-            <dt class="font-medium text-gray-900">description</dt>
+            <dt class="font-medium text-gray-900">Descripción</dt>
             <dd class="text-gray-700 sm:col-span-2">
-              <%= excursion.detailsExcursion.description %>
+              <%= excursion.detailsExcursion ? excursion.detailsExcursion.description : excursion.description %>
             </dd>
           </div>
   

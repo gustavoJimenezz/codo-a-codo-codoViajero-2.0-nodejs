@@ -89,8 +89,7 @@ controller.getExcursionsByDestinationFilter = async (req, res) => {
 controller.getExcursionsById = async (req, res) =>{
 
     try {
-        const excursionId = parseInt(req.params.excursionId); 
-
+        const excursionId = parseInt(req.params.excursionId);
         const excursion = await models.Excursion.findOne({
             where : {id : excursionId},
             include: [
@@ -100,22 +99,31 @@ controller.getExcursionsById = async (req, res) =>{
               }
             ]
           });
-        
+
+        if (!excursion) {
+            return res.status(404).render('error', {
+                layout: false,
+                message: 'Excursión no encontrada'
+            });
+        }
+
+        if (!excursion.detailsExcursion) {
+            console.error(`No se encontraron detalles para la excursión ID: ${excursionId}`);
+        }
+
         const imagesExcursions = await models.ExcursionImages.findAll({
             where: {excursion_id : excursion.id}
-        }) 
-
-        const operator = await models.User.findOne
+        })
 
         const availability =  await models.Availability.findAll({
             where: {excursion_id : excursion.id}
         })
 
-        
         res.render('detailsExcursion', {
             layout: false,
             excursion : excursion,
-            imagesExcursions: imagesExcursions
+            imagesExcursions: imagesExcursions,
+            hasDetails: !!excursion.detailsExcursion
         })
     } catch (e) {
         res.status(500).json({ error: 'Error : ' , message: e.message});
