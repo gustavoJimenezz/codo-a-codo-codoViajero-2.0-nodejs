@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/auth.controller');
 const {validationLogin} = require('../middleware/validation');
-const passport = require('../config/passport');
+const passport = require('../middleware/passport');
 
 router.get('/auth/login', controller.login);
 router.get('/auth/singUp', controller.singUp);
