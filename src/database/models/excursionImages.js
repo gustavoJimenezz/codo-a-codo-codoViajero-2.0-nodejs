@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
 
     sequelize,
-    tableName: 'excursionImages',
+    tableName: 'detailExcursionImages',
     timestamps: true,
     freezeTableName: true, 
     paranoid: true,

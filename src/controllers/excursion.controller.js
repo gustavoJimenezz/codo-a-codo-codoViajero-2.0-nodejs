@@ -87,18 +87,29 @@ controller.getExcursionsByDestinationFilter = async (req, res) => {
 };
 
 controller.getExcursionsById = async (req, res) =>{
-
     try {
         const excursionId = parseInt(req.params.excursionId);
+
         const excursion = await models.Excursion.findOne({
-            where : {id : excursionId},
+            where: { id: excursionId },
             include: [
-              {
-                model: models.DetailsExcursions,
-                as: "detailsExcursion"
-              }
+                {
+                    model: models.DetailsExcursions,
+                    as: 'detailsExcursion'
+                },
+                {
+                    model: models.Availability,
+                    as: 'availability'
+                },
+                {
+                    model: models.ExcursionImages,
+                    as: 'images'
+                },
+                {
+                    model: models.Destination
+                }
             ]
-          });
+        });
 
         if (!excursion) {
             return res.status(404).render('error', {
@@ -107,23 +118,22 @@ controller.getExcursionsById = async (req, res) =>{
             });
         }
 
-        if (!excursion.detailsExcursion) {
-            console.error(`No se encontraron detalles para la excursión ID: ${excursionId}`);
-        }
-
-        const imagesExcursions = await models.ExcursionImages.findAll({
-            where: {excursion_id : excursion.id}
-        })
-
-        const availability =  await models.Availability.findAll({
-            where: {excursion_id : excursion.id}
-        })
+        const details = excursion.detailsExcursion;
 
         res.render('detailsExcursion', {
             layout: false,
-            excursion : excursion,
-            imagesExcursions: imagesExcursions,
-            hasDetails: !!excursion.detailsExcursion
+            excursion: {
+                id: excursion.id,
+                name: excursion.name,
+                description: details?.description || excursion.description,
+                price: details?.price || null,
+                duration: details?.duration || null,
+                img: excursion.img,
+                destination: excursion.Destination?.name || null
+            },
+            images: excursion.images || [],
+            availability: excursion.availability ? [excursion.availability] : [],
+            hasDetails: !!details
         })
     } catch (e) {
         res.status(500).json({ error: 'Error : ' , message: e.message});

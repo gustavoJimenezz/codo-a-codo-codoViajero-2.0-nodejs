@@ -69,7 +69,7 @@
 │   │   │   ├── destination.js
 │   │   │   ├── excursion.js
 │   │   │   ├── detailsexcursions.js
-│   │   │   ├── excursionImages.js
+│   │   │   ├── detailExcursionImages.js
 │   │   │   └── availability.js
 │   │   ├── migrations/             # Migraciones de base de datos
 │   │   └── seeders/                # Datos semilla
@@ -190,7 +190,7 @@
 - Campos: `id`, `excursion_id`, `description`, `duration`, `price`, `createdAt`, `updatedAt`, `deletedAt`
 - Relaciones: belongsTo `Excursion`
 
-### **ExcursionImages** (`excursionImages`)
+### **ExcursionImages** (`detailExcursionImages`)
 - Campos: `id`, `excursion_id`, `img`, `createdAt`, `updatedAt`, `deletedAt`
 - Relaciones: belongsTo `Excursion`
 
