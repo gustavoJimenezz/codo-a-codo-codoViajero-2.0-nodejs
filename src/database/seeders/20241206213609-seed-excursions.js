@@ -88,6 +88,7 @@ module.exports = {
       {
         name: 'City Tour por Rosario',
         description: 'Descubre los principales puntos turísticos de Rosario en una excursión guiada.',
+        img: 'excursion-rosario-1.jpg',
         destination_id: destinoMap['Rosario'],
         createdAt: new Date(),
         updatedAt: new Date()

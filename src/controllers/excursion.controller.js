@@ -98,10 +98,6 @@ controller.getExcursionsById = async (req, res) =>{
                     as: 'detailsExcursion'
                 },
                 {
-                    model: models.Availability,
-                    as: 'availability'
-                },
-                {
                     model: models.ExcursionImages,
                     as: 'images'
                 },
@@ -111,29 +107,34 @@ controller.getExcursionsById = async (req, res) =>{
             ]
         });
 
+        const destination = await models.Destination.findOne({
+            where: {id: excursion.destination_id}
+        })
+        
         if (!excursion) {
             return res.status(404).render('error', {
                 layout: false,
                 message: 'Excursión no encontrada'
             });
         }
-
-        const details = excursion.detailsExcursion;
+        
+        const detailsExcursion = excursion.detailsExcursion;
+        
+        const excursionData = {
+            id: excursion.id,
+            name: excursion.name,
+            description: detailsExcursion?.description || excursion.description,
+            price: detailsExcursion?.price || null,
+            duration: detailsExcursion?.duration || null,
+            img: excursion.img,
+            destination: destination || null
+        }
 
         res.render('detailsExcursion', {
             layout: false,
-            excursion: {
-                id: excursion.id,
-                name: excursion.name,
-                description: details?.description || excursion.description,
-                price: details?.price || null,
-                duration: details?.duration || null,
-                img: excursion.img,
-                destination: excursion.Destination?.name || null
-            },
-            images: excursion.images || [],
-            availability: excursion.availability ? [excursion.availability] : [],
-            hasDetails: !!details
+            excursion: excursionData,
+            imagesExcursions: excursion.images || [],
+            hasDetails: !!detailsExcursion
         })
     } catch (e) {
         res.status(500).json({ error: 'Error : ' , message: e.message});

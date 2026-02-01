@@ -16,14 +16,13 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-gray-50">
-  <!-- Hero Section con imagen de fondo -->
   <header class="relative">
     <%- include('./layouts/partials/nav') %>
 
     <div class="relative h-72 md:h-96 overflow-hidden">
       <% if (imagesExcursions && imagesExcursions.length > 0) { %>
         <img
-          src="/img/excursions/excursion-cordoba-1/<%= imagesExcursions[0].img %>"
+          src="/img/excursions/<%= imagesExcursions[0].img %>"
           alt="<%= excursion.name %>"
           class="absolute inset-0 w-full h-full object-cover"
         >
@@ -61,10 +60,8 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        <!-- Columna principal -->
         <div class="lg:col-span-2 space-y-8">
 
-          <!-- Galería de imágenes -->
           <% if (imagesExcursions && imagesExcursions.length > 0) { %>
             <section>
               <div id="excursion-carousel" class="relative w-full" data-carousel="slide">
@@ -72,7 +69,7 @@
                   <% imagesExcursions.forEach((image, index) => { %>
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="<%= index === 0 ? 'active' : '' %>">
                       <img
-                        src="/img/excursions/excursion-cordoba-1/<%= image.img %>"
+                        src="/img/excursions/<%= image.img %>"
                         class="absolute block w-full h-full object-cover"
                         alt="<%= excursion.name %> - Imagen <%= index + 1 %>"
                       >
@@ -92,7 +89,6 @@
                     </svg>
                   </button>
 
-                  <!-- Indicadores -->
                   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                     <% imagesExcursions.forEach((_, index) => { %>
                       <button type="button" class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-colors" data-carousel-slide-to="<%= index %>" aria-label="Ir a imagen <%= index + 1 %>"></button>
@@ -103,7 +99,6 @@
             </section>
           <% } %>
 
-          <!-- Descripción -->
           <section class="bg-white rounded-xl p-6 shadow-sm">
             <h2 class="text-xl font-semibold text-gray-900 mb-4">Sobre esta excursión</h2>
             <p class="text-gray-600 leading-relaxed">
@@ -111,7 +106,6 @@
             </p>
           </section>
 
-          <!-- Detalles adicionales -->
           <section class="bg-white rounded-xl p-6 shadow-sm">
             <h2 class="text-xl font-semibold text-gray-900 mb-4">Información del viaje</h2>
             <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -124,7 +118,7 @@
                 <div>
                   <dt class="text-sm text-gray-500">Duración</dt>
                   <dd class="font-semibold text-gray-900">
-                    <%= excursion.detailsExcursion ? excursion.detailsExcursion.duration + ' horas' : 'No disponible' %>
+                    <%= excursion ? excursion.duration + ' horas' : 'No disponible' %>
                   </dd>
                 </div>
               </div>
@@ -147,13 +141,12 @@
           </section>
         </div>
 
-        <!-- Sidebar - Tarjeta de reserva -->
         <aside class="lg:col-span-1">
           <div class="sticky top-6 bg-white rounded-xl shadow-lg overflow-hidden">
             <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6 text-white">
               <p class="text-sm font-medium opacity-90">Precio por persona</p>
               <p class="text-4xl font-bold mt-1">
-                $<%= excursion.detailsExcursion ? excursion.detailsExcursion.price : 'N/A' %>
+                $<%= excursion ? excursion.price : 'N/A' %>
               </p>
             </div>
 
@@ -191,32 +184,29 @@
         </aside>
       </div>
 
-      <!-- Disponibilidad -->
-      <% if (availability && availability.length > 0) { %>
       <div class="mt-6">
         <h3 class="text-xl font-semibold text-gray-900 mb-4">Disponibilidad</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <% availability.forEach(function(slot) { %>
+
           <div class="p-4 border border-gray-200 rounded-lg bg-gray-50">
-            <% if (slot.date) { %>
+
             <p class="text-sm text-gray-600">
               <span class="font-medium">Fecha:</span>
-              <%= new Date(slot.date).toLocaleDateString('es-AR') %>
+              asd
             </p>
-            <% } %>
+
             <p class="text-sm text-gray-600">
               <span class="font-medium">Hora de inicio:</span>
-              <%= slot.start_time %>
+              asd
             </p>
+
             <p class="text-sm text-gray-600">
               <span class="font-medium">Duración:</span>
-              <%= slot.duration %> horas
+              <%= excursion.duration %> horas
             </p>
           </div>
-          <% }); %>
         </div>
       </div>
-      <% } %>
     </div>
   </main>
 
