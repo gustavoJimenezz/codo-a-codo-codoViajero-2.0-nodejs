@@ -3,13 +3,13 @@
       <!-- EXCURSIONES -->
       <div class="w-full container mx-auto flex items-center mt-0 px-2 py-3">
         <h3 class="w-full uppercase tracking-wide text-center mt-[15px] mb-[30px] text-[2.5rem] font-light">
-          | Excursiones
+         Excursiones
         </h3>
       </div>
   
       <div class="grid grid-cols-4 gap-8 flex-auto">
         <% excursions.forEach(excursion => { %>
-          <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+          <a href="/excursions/details/<%= excursion.id %>"  class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
             <img
               alt=""
               src="/img/excursions/<%= excursion.img %>"

@@ -1521,6 +1521,30 @@ body {
   background-color: rgb(254 252 232 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#001f3f\]\/90 {
+  background-color: rgb(0 31 63 / 0.9);
+}
+
+.bg-\[\#001f3f\]\/95 {
+  background-color: rgb(0 31 63 / 0.95);
+}
+
+.bg-\[\#001f3f\]\/70 {
+  background-color: rgb(0 31 63 / 0.7);
+}
+
+.bg-\[\#001f3f\]\/80 {
+  background-color: rgb(0 31 63 / 0.8);
+}
+
+.bg-\[\#001f3f\]\/20 {
+  background-color: rgb(0 31 63 / 0.2);
+}
+
+.bg-\[\#001f3f\]\/30 {
+  background-color: rgb(0 31 63 / 0.3);
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
