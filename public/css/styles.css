@@ -1438,6 +1438,10 @@ body {
   border-color: rgb(254 240 138 / var(--tw-border-opacity));
 }
 
+.bg-\[\#001f3f\]\/30 {
+  background-color: rgb(0 31 63 / 0.3);
+}
+
 .bg-\[\#0070ba\] {
   --tw-bg-opacity: 1;
   background-color: rgb(0 112 186 / var(--tw-bg-opacity));
@@ -1519,30 +1523,6 @@ body {
 .bg-yellow-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 252 232 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#001f3f\]\/90 {
-  background-color: rgb(0 31 63 / 0.9);
-}
-
-.bg-\[\#001f3f\]\/95 {
-  background-color: rgb(0 31 63 / 0.95);
-}
-
-.bg-\[\#001f3f\]\/70 {
-  background-color: rgb(0 31 63 / 0.7);
-}
-
-.bg-\[\#001f3f\]\/80 {
-  background-color: rgb(0 31 63 / 0.8);
-}
-
-.bg-\[\#001f3f\]\/20 {
-  background-color: rgb(0 31 63 / 0.2);
-}
-
-.bg-\[\#001f3f\]\/30 {
-  background-color: rgb(0 31 63 / 0.3);
 }
 
 .bg-gradient-to-b {
